@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter, Route, Routes } from "react-router";
+import Layout from "./Layout.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import "./assets/style/style.scss";
 
-createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <HashRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  </StrictMode>
+);
