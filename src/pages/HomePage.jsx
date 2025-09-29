@@ -8,19 +8,26 @@ import AuthorsSection from "../components/AuthorsSection/AuthorsSection";
 import SiteFooter from "../components/SiteFooter/SiteFooter";
 
 export default function HomePage() {
-  const [leadIndex, setLeadIndex] = useState(1);
+  const [leadArticle, setLeadArticle] = useState(null);
+  const [articles, setArticles] = useState([]);
+
   const getArticles = async () => {
+    if (!leadArticle) return false;
+    searchArticles();
+  };
+
+  const searchArticles = async () => {
     try {
       const response = await fetch(
         `${import.meta.env.BASE_URL}/mocks/articles.json`
       );
       if (response.ok) {
+        console.log(response);
+
         const data = await response.json();
-        console.log(data);
-        setLeadIndex(() =>
-          data.findIndex((article) => article.lead === "true")
-        );
-        console.log(leadIndex);
+        const lead = data.find((article) => article.lead === "true");
+        setLeadArticle(lead);
+        setArticles(data.filter((article) => article.id !== lead.id));
       } else {
         throw new Error(
           "Failed to fetch articles, with status: " + response.status
@@ -31,8 +38,12 @@ export default function HomePage() {
     }
   };
 
+  // useEffect(() => {
+  //   searchArticles();
+  // }, []);
+
   useEffect(() => {
-    getArticles();
+    searchArticles();
   }, []);
 
   return (
@@ -76,8 +87,9 @@ export default function HomePage() {
           />
         </svg>
       </div>
+      {/* {leadArticle?.entries()} */}
       <NewsTicker />
-      <LeadArticle />
+      <LeadArticle lead={leadArticle} />
       <ArticlesSection />
       <PodcastsSection />
       <AuthorsSection />

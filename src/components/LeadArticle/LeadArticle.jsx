@@ -1,4 +1,21 @@
-export default function LeadArticle() {
+import { useEffect, useState } from "react";
+import { getImagePath } from "../../helpers";
+
+export default function LeadArticle(props) {
+  const [imagePath, setImagePath] = useState("/src/assets/img/");
+  console.log(props);
+  const leadImage = () => {
+    if (!props.lead?.img) {
+      return false;
+    }
+    // setImagePath(getImagePath(`${imagePath}${props.lead.img}`));
+    console.log(imagePath);
+  };
+
+  useEffect(() => {
+    leadImage();
+  }, [props, imagePath]);
+
   return (
     <>
       <article>
@@ -24,7 +41,7 @@ export default function LeadArticle() {
         </div>
         <div className="image">
           <div className="img-wrap">
-            <img src="" alt="" />
+            <img src={imagePath} alt={`${props.lead?.title} image`} />
           </div>
         </div>
       </article>
