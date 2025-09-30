@@ -1,0 +1,61 @@
+.lead-article {
+    min-height: 100dvh;
+
+    .content {
+        display: flex;
+        margin-bottom: 48px;
+        gap: 48px;
+
+        &>* {
+            width: 50%;
+        }
+
+        .text>* {
+            width: 100%;
+        }
+
+        .text>P {
+            margin-bottom: 64px;
+        }
+
+        h3 {
+            font-size: 6.5rem;
+            font-weight: 600;
+            line-height: 110%;
+            text-transform: uppercase;
+        }
+
+        li {
+            font-size: 0.875rem;
+
+            &:not(&:last-child) {
+                margin-right: 24px;
+            }
+        }
+
+        .param {
+            font-weight: 600;
+            line-height: 160%;
+            margin-right: 8px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            max-height: 32px;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+    }
+
+    .img-wrap {
+        max-width: unset;
+        width: 100%;
+        max-height: 800px;
+        aspect-ratio: 1520/800;
+        object-fit: cover;
+    }
+}

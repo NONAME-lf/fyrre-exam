@@ -68,6 +68,7 @@ body {
     max-width: 280px;
 }
 
+//  <== ART & LIFE ==>
 .slogan {
     margin-bottom: 48px;
     text-align: center;
@@ -76,6 +77,17 @@ body {
     max-height: unset;
 
     svg {
+        height: 100%;
         width: 100%;
     }
+}
+
+//  <== NEWS TICKER ==>
+.news-ticker {
+    margin-bottom: 75.71px;
+}
+
+// <== LEAD ARTICLE ==>
+.lead-article {
+    margin-bottom: 50.29px;
 }

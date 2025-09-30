@@ -11,19 +11,12 @@ export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
   const [articles, setArticles] = useState([]);
 
-  const getArticles = async () => {
-    if (!leadArticle) return false;
-    searchArticles();
-  };
-
   const searchArticles = async () => {
     try {
       const response = await fetch(
         `${import.meta.env.BASE_URL}/mocks/articles.json`
       );
       if (response.ok) {
-        console.log(response);
-
         const data = await response.json();
         const lead = data.find((article) => article.lead === "true");
         setLeadArticle(lead);
@@ -37,10 +30,6 @@ export default function HomePage() {
       toast.error("Error occured: " + error.message, { theme: "dark" });
     }
   };
-
-  // useEffect(() => {
-  //   searchArticles();
-  // }, []);
 
   useEffect(() => {
     searchArticles();
@@ -87,13 +76,13 @@ export default function HomePage() {
           />
         </svg>
       </div>
-      {/* {leadArticle?.entries()} */}
       <NewsTicker />
       <LeadArticle lead={leadArticle} />
-      <ArticlesSection />
+      <ArticlesSection articles={articles} />
+      {/* 
       <PodcastsSection />
       <AuthorsSection />
-      <SiteFooter />
+      <SiteFooter /> */}
     </>
   );
 }
