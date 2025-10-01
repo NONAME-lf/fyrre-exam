@@ -13,9 +13,13 @@ export default function SocList() {
         </a>
       </li>
       <li>
-        <svg className="icon">
-          <use xlinkHref={`${import.meta.env.BASE_URL}/sprite.svg#rirss`}></use>
-        </svg>
+        <a href="#" target="_blank" rel="noopener noreferrer nofollow">
+          <svg className="icon">
+            <use
+              xlinkHref={`${import.meta.env.BASE_URL}/sprite.svg#rirss`}
+            ></use>
+          </svg>
+        </a>
       </li>
       <li>
         <a href="#" target="_blank" rel="noopener noreferrer nofollow">

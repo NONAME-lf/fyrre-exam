@@ -8,8 +8,8 @@ function Layout() {
   const [count, setCount] = useState(0);
   return (
     <div className="page-wrapper">
+      <SiteHeader />
       <Container>
-        <SiteHeader />
         <Outlet />
       </Container>
       <ToastContainer />
