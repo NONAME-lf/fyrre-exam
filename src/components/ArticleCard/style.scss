@@ -36,6 +36,7 @@
         justify-content: space-between;
         position: relative;
         bottom: 0;
+        gap: 16px;
     }
 
     .info li {
@@ -60,5 +61,14 @@
 @media screen and (max-width: 896px) {
     .article-card {
         grid-template-columns: 1fr;
+
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .article-card {
+        .info li:not(:last-child) {
+            margin-right: 0px;
+        }
     }
 }

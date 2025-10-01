@@ -24,6 +24,20 @@
             font-weight: 600;
             line-height: 110%;
             text-transform: uppercase;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+                filter: blur(4px) grayscale(0) drop-shadow(2px 4px 6px black);
+            }
         }
 
         li {
@@ -84,21 +98,27 @@
 @media screen and (max-width: 600px) {
     .lead-article {
         position: relative;
+        min-height: 600px;
 
-        .content {
-            background-color: rgb(255 255 255 / 70%);
-            backdrop-filter: blur(3px);
+        .content h3 {
 
-            .info {
-                max-height: unset;
+            &::before {
+                opacity: 0.5;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image: var(--bg-before);
             }
+        }
+
+        .content .info {
+            max-height: unset;
         }
 
         .img-wrap {
             position: absolute;
             z-index: -1;
             top: 6px;
-            height: 15%;
+            // height: 15%;
             left: 4px;
             width: calc(100% - 8px);
         }

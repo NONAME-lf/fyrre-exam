@@ -5,6 +5,8 @@ import CategoryLabel from "../CategoryLabel/CategoryLabel";
 
 export default function LeadArticle(props) {
   const [imagePath, setImagePath] = useState("/fyrre-exam/src/assets/img/");
+  const [clientWidth, setClientWidth] = useState(document.body.clientWidth);
+
   const leadImage = () => {
     if (!props.lead?.img) {
       return false;
@@ -12,9 +14,31 @@ export default function LeadArticle(props) {
     setImagePath(getImagePath(`${imagePath}${props.lead.img}`));
   };
 
+  const ifRwdWidth = () => {
+    const width = document.body.clientWidth;
+    setClientWidth(width);
+    if (width <= 600) {
+      document
+        .querySelector(".lead-article .content h3")
+        .style.setProperty("--bg-before", `url(${imagePath})`);
+    } else {
+      document
+        .querySelector(".lead-article .content h3")
+        .style.setProperty("--bg-before", `none`);
+    }
+  };
+
   useEffect(() => {
     leadImage();
   }, [props]);
+
+  useEffect(() => {
+    ifRwdWidth();
+
+    window.addEventListener("resize", () => {
+      ifRwdWidth();
+    });
+  }, [imagePath]);
 
   return (
     <>
@@ -42,9 +66,11 @@ export default function LeadArticle(props) {
             </div>
           </div>
         </div>
-        <div className="img-wrap">
-          <img src={imagePath} alt={`${props.lead?.title} image`} />
-        </div>
+        {clientWidth > 600 && (
+          <div className="img-wrap">
+            <img src={imagePath} alt={`${props.lead?.title} image`} />
+          </div>
+        )}
       </article>
     </>
   );
