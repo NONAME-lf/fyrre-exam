@@ -17,7 +17,7 @@ export default function LeadArticle(props) {
   const ifRwdWidth = () => {
     const width = document.body.clientWidth;
     setClientWidth(width);
-    if (width <= 600) {
+    if (width <= 600 && imagePath) {
       document
         .querySelector(".lead-article .content h3")
         .style.setProperty("--bg-before", `url(${imagePath})`);
