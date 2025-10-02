@@ -37,15 +37,15 @@ export default function ArticleCard(props) {
           <div className="info">
             <ul>
               <li>
-                <span className="param">Text:</span>
+                <span className="param">Text</span>
                 {props.article.author}
               </li>
               <li>
-                <span className="param">Date:</span>
+                <span className="param">Date</span>
                 {props.article.date}
               </li>
               <li>
-                <span className="param">Duration:</span>
+                <span className="param">Duration</span>
                 {props.article.timeToRead}
               </li>
             </ul>

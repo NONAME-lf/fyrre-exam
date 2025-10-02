@@ -50,15 +50,15 @@ export default function LeadArticle(props) {
             <div className="info">
               <ul>
                 <li>
-                  <span className="param">Text:</span>
+                  <span className="param">Text</span>
                   {props.lead?.author}
                 </li>
                 <li>
-                  <span className="param">Date:</span>
+                  <span className="param">Date</span>
                   {props.lead?.date}
                 </li>
                 <li>
-                  <span className="param">Duration:</span>
+                  <span className="param">Duration</span>
                   {props.lead?.timeToRead}
                 </li>
               </ul>

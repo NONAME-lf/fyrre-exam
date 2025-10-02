@@ -10,6 +10,7 @@ import SiteFooter from "../components/SiteFooter/SiteFooter";
 export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
   const [articles, setArticles] = useState([]);
+  const [accessToken, setAccessToken] = useState("");
 
   const searchArticles = async () => {
     try {
@@ -33,7 +34,52 @@ export default function HomePage() {
 
   useEffect(() => {
     searchArticles();
-  }, []);
+    !accessToken && requestSpotifyToken();
+    accessToken && requestSpotifyData();
+  }, [accessToken]);
+
+  const requestSpotifyToken = async () => {
+    if (accessToken) return;
+    try {
+      const response = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization:
+            "Basic " +
+            btoa(
+              `${import.meta.env.VITE_SPOTIFY_CLIENT_ID}:${
+                import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
+              }`
+            ),
+        },
+        body: new URLSearchParams({ grant_type: "client_credentials" }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setAccessToken(data.access_token);
+        console.log(data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const requestSpotifyData = async () => {
+    try {
+      const response = await fetch(
+        // "https://api.spotify.com/v1/me/shows?limit=5&offset=0",
+        "https://api.spotify.com/v1/search?q=art&type=show&limit=5",
+        {
+          method: "GET",
+          headers: { Authorization: "Bearer " + accessToken },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -79,8 +125,8 @@ export default function HomePage() {
       <NewsTicker />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
-      {/* 
       <PodcastsSection />
+      {/* 
       <AuthorsSection />
       <SiteFooter /> */}
     </>
