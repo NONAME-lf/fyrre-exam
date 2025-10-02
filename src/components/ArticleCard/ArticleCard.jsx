@@ -20,16 +20,14 @@ export default function ArticleCard(props) {
   return (
     <>
       <article className={`article-card ${orientation}`}>
-        <div className="image">
-          <div className="img-wrap">
-            <img
-              src={imagePath}
-              alt={`${props.article.title} image`}
-              onError={() =>
-                setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
-              }
-            />
-          </div>
+        <div className="img-wrap">
+          <img
+            src={imagePath}
+            alt={`${props.article.title} image`}
+            onError={() =>
+              setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
+            }
+          />
         </div>
         <div className="content">
           <div className="text">

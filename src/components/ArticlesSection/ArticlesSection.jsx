@@ -1,10 +1,11 @@
 import { NavLink } from "react-router";
 import ArticleItem from "../ArticleCard/ArticleCard";
 import "./style.scss";
+import HoverLink from "../HoverLink/HoverLink";
 
 export default function ArticleSection(props) {
   return (
-    <>
+    <section className="articles-section">
       <ul className="articles">
         {props.articles.map((article) => {
           return (
@@ -14,8 +15,8 @@ export default function ArticleSection(props) {
           );
         })}
       </ul>
-      <NavLink to="/magazine">All Articles</NavLink>
+      <HoverLink to="/magazine" highlight="All" text={" Articles"} />
       <div className="sidebar"></div>
-    </>
+    </section>
   );
 }

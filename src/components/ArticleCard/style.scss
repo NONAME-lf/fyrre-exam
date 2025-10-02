@@ -33,6 +33,7 @@
 
     .info {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         position: relative;
         bottom: 0;
@@ -62,7 +63,20 @@
     .article-card {
         grid-template-columns: 1fr;
 
+        .info {
+
+            li,
+            li .param {
+                font-size: 1.25rem;
+            }
+
+            .text>p {
+                font-size: 1.5rem;
+                line-height: 160%;
+            }
+        }
     }
+
 }
 
 @media screen and (max-width: 425px) {
@@ -70,5 +84,27 @@
         .info li:not(:last-child) {
             margin-right: 0px;
         }
+
+
+        .info {
+            ul {
+                width: 50%;
+            }
+
+            li {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:hover {
+                    white-space: normal;
+                    overflow: visible;
+                    text-overflow: unset;
+                }
+            }
+        }
+
     }
 }

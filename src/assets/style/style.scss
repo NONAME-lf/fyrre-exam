@@ -97,4 +97,8 @@ body {
 .lead-article {
     // padding-top: 75.71px;
     margin-bottom: 50.29px;
+
+    @media screen and (max-width: 896px) {
+        margin-bottom: 100.58px;
+    }
 }

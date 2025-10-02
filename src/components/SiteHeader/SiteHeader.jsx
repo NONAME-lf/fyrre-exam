@@ -3,6 +3,7 @@ import "./style.scss";
 import logo from "../../assets/img/fyrre-logo.svg";
 import SocList from "../SocList/SocList";
 import Container from "../Container/Container";
+import HoverLink from "../HoverLink/HoverLink";
 
 export default function SiteHeader() {
   return (
@@ -16,24 +17,18 @@ export default function SiteHeader() {
         <nav className="main-menu">
           <ul className="nav-list">
             <li>
-              <NavLink to="/magazine">
-                M<span className="hover-span">agazine</span>
-              </NavLink>
+              <HoverLink to="/magazine" highlight="M" text="agazine" />
             </li>
             <li>
-              <NavLink to="/authors">
-                A<span className="hover-span">uthors</span>
-              </NavLink>
+              <HoverLink to="/authors" highlight="A" text="uthors" />
             </li>
             <li>
-              <NavLink to="/podcast">
-                P<span className="hover-span">odcast</span>
-              </NavLink>
+              <HoverLink to="/podcast" highlight="P" text="odcast" />
             </li>
             <li>
               <span className="divider"></span>
             </li>
-            <SocList />
+            <SocList isHeader={true} />
           </ul>
         </nav>
       </Container>

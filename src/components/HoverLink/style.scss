@@ -1,0 +1,77 @@
+.hover-span {
+    position: relative;
+    left: 0;
+    transition: all .3s;
+    color: #000;
+}
+
+.highlight {
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        transition: width .3s;
+        height: 100%;
+        width: 0;
+        top: 0;
+        background-color: #000;
+        z-index: -1;
+        transform: translateX(-10%);
+    }
+}
+
+a {
+    color: #000;
+    line-height: normal;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+// HOVER
+a:hover {
+    color: #fff;
+
+    .hover-span {
+        left: 7%;
+
+    }
+
+    .highlight::before {
+        width: 140%;
+    }
+
+    &::after {
+        width: 100%;
+    }
+}
+
+a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+    width: 0;
+    position: relative;
+    top: 3px;
+}
+
+a:active {
+
+    .hover-span {
+        left: 0;
+        color: #fff;
+
+    }
+
+    .highlight::before {
+        width: 150%;
+    }
+
+    &::after {
+        width: 20%;
+    }
+}

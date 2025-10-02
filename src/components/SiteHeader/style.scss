@@ -17,26 +17,6 @@ header .container {
     padding: 16px 0;
 }
 
-.hover-span {
-    position: relative;
-    left: 0;
-    transition: all .3s;
-    color: #000;
-
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        transition: width .3s;
-        height: 100%;
-        width: 0;
-        top: 0;
-        background-color: #000;
-        z-index: -1;
-        left: -37%;
-    }
-}
-
 nav {
     display: inline-block;
     height: 27px;
@@ -51,58 +31,6 @@ nav {
             font-size: 1.25rem;
             margin-right: 24px;
             height: 100%;
-        }
-
-        a {
-            color: #000;
-            line-height: normal;
-            height: 100%;
-            display: inline-block;
-            position: relative;
-        }
-
-        // HOVER
-        a::after {
-            content: '';
-            display: block;
-            height: 2px;
-            background: #000;
-            transition: width .3s;
-            width: 0;
-            position: relative;
-            top: 3px;
-        }
-
-        a:hover {
-            color: #fff;
-
-            .hover-span {
-                left: 5px;
-
-                &::before {
-                    width: 34%;
-                }
-            }
-
-            &::after {
-                width: 100%;
-            }
-        }
-
-        a:active {
-
-            .hover-span {
-                left: 0;
-                color: #fff;
-
-                &::before {
-                    width: 150%;
-                }
-            }
-
-            &::after {
-                width: 20%;
-            }
         }
     }
 }
