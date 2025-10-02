@@ -1,5 +1,10 @@
   export function getImagePath(path) {
-      const url = new URL(path,
+      const url = new URL(`./assets/img/${path}`,
           import.meta.url).href;
       return url;
   }
+  //   export function getImagePath(path) {
+  //       const url = new URL(path,
+  //           import.meta.url).href;
+  //       return url;
+  //   }

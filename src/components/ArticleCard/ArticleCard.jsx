@@ -3,18 +3,14 @@ import { useEffect, useState } from "react";
 import { getImagePath } from "../../helpers";
 
 export default function ArticleCard(props) {
-  const [imagePath, setImagePath] = useState(
-    "/fyrre-exam/src/assets/img/no-image.jpg"
-  );
+  const [imagePath, setImagePath] = useState(null);
   const [orientation, setOrientation] = useState("horizontal");
 
   const image = () => {
     if (!props.article?.img) {
       return false;
     }
-    setImagePath(
-      getImagePath(`/fyrre-exam/src/assets/img/${props.article.img}`)
-    );
+    setImagePath(getImagePath(`${props.article.img}`));
   };
 
   useEffect(() => {

@@ -4,14 +4,14 @@ import "./style.scss";
 import CategoryLabel from "../CategoryLabel/CategoryLabel";
 
 export default function LeadArticle(props) {
-  const [imagePath, setImagePath] = useState("/fyrre-exam/src/assets/img/");
+  const [imagePath, setImagePath] = useState(null);
   const [clientWidth, setClientWidth] = useState(document.body.clientWidth);
 
   const leadImage = () => {
     if (!props.lead?.img) {
       return false;
     }
-    setImagePath(getImagePath(`${imagePath}${props.lead.img}`));
+    setImagePath(getImagePath(`${props.lead.img}`));
   };
 
   const ifRwdWidth = () => {
@@ -68,7 +68,13 @@ export default function LeadArticle(props) {
         </div>
         {clientWidth > 600 && (
           <div className="img-wrap">
-            <img src={imagePath} alt={`${props.lead?.title} image`} />
+            <img
+              src={imagePath}
+              alt={`${props.lead?.title} image`}
+              onError={() =>
+                setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
+              }
+            />
           </div>
         )}
       </article>
