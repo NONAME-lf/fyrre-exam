@@ -15,7 +15,7 @@ export default function ArticleSection(props) {
           );
         })}
       </ul>
-      <HoverLink to="/magazine" highlight="All" text={" Articles"} />
+      <HoverLink to="/magazine" highlight="All" text={" Articles"} icon="" />
       <div className="sidebar"></div>
     </section>
   );

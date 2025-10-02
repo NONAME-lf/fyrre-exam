@@ -1,3 +1,14 @@
+@use '../../assets/fonts/icomoon-arrow/style.css' as *;
+
+.icon {
+    font-family: 'icomoon';
+    position: relative;
+    top: 2px;
+    left: 5px;
+    color: #000;
+    transition: all .3s;
+}
+
 .hover-span {
     position: relative;
     left: 0;
@@ -8,18 +19,20 @@
 .highlight {
     position: relative;
 
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        transition: width .3s;
-        height: 100%;
-        width: 0;
-        top: 0;
-        background-color: #000;
-        z-index: -1;
-        transform: translateX(-10%);
-    }
+}
+
+a::before,
+.highlight::before {
+    content: '';
+    display: block;
+    position: absolute;
+    transition: width .3s;
+    height: 100%;
+    width: 0;
+    top: 0;
+    background-color: #000;
+    z-index: -1;
+    transform: translateX(-10%);
 }
 
 a {
@@ -36,7 +49,6 @@ a:hover {
 
     .hover-span {
         left: 7%;
-
     }
 
     .highlight::before {
@@ -46,7 +58,12 @@ a:hover {
     &::after {
         width: 100%;
     }
+
+    .icon {
+        left: 12%;
+    }
 }
+
 
 a::after {
     content: '';
@@ -60,18 +77,21 @@ a::after {
 }
 
 a:active {
-
     .hover-span {
         left: 0;
         color: #fff;
-
     }
 
-    .highlight::before {
-        width: 150%;
+    &::before {
+        width: 125%;
     }
 
     &::after {
         width: 20%;
+    }
+
+    .icon {
+        color: #fff;
+        left: 5px;
     }
 }
