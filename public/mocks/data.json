@@ -1,0 +1,88 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Don't close your eyes",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "dont-close-your-eyes-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "ART",
+      "lead": "true"
+    },
+    {
+      "id": 2,
+      "title": "Hope dies last",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "hope-dies-last-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "ART",
+      "lead": "false"
+    },
+    {
+      "id": 3,
+      "title": "The best art museums",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "the-best-art-museums-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "SCULPTURES",
+      "lead": "false"
+    },
+    {
+      "id": 4,
+      "title": "The devil is the details",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "the-devil-is-in-the-details-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "ART",
+      "lead": "false"
+    },
+    {
+      "id": 5,
+      "title": "An indestructible hope",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "an-indestructible-hope-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "ART",
+      "lead": "false"
+    },
+    {
+      "id": 6,
+      "title": "Street art festival",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "street-art-festival-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "STREET ART",
+      "lead": "false"
+    },
+    {
+      "id": 7,
+      "title": "Through the eyes of street artists",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "through-the-eyes-of-street-artists-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "STREET ART",
+      "lead": "false"
+    }
+  ],
+  "episodes": [
+    { "id": "4hadEdrk9N6pxgfID6RT1Q" },
+    { "id": "5tC8LcpjpePDY1fAbUJXy5" },
+    { "id": "7DCblb4zBH9RsIISDKZnux" },
+    { "id": "41zWZdWCpVQrKj7ykQnXRc" },
+    { "id": "1tMyVKbZhA8ybRBOrnSUsO" }
+  ]
+}

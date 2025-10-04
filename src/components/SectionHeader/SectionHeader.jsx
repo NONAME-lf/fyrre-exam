@@ -1,10 +1,17 @@
 import { NavLink } from "react-router";
+import HoverLink from "../HoverLink/HoverLink";
+import "./style.scss";
 
-export default function SectionHeader() {
+export default function SectionHeader(props) {
   return (
-    <>
-      <h2></h2>
-      <NavLink to="/magazine">All Articles</NavLink>
-    </>
+    <div className="section-header">
+      <h2>{props.title}</h2>
+      <HoverLink
+        to="/magazine"
+        highlight="All&nbsp;"
+        text="Episodes"
+        icon=""
+      />
+    </div>
   );
 }

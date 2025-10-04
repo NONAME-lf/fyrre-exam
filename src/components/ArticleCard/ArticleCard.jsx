@@ -1,6 +1,7 @@
 import "./style.scss";
 import { useEffect, useState } from "react";
 import { getImagePath } from "../../helpers";
+import { NavLink } from "react-router";
 
 export default function ArticleCard(props) {
   const [imagePath, setImagePath] = useState(null);
@@ -20,18 +21,25 @@ export default function ArticleCard(props) {
   return (
     <>
       <article className={`article-card ${orientation}`}>
-        <div className="img-wrap">
-          <img
-            src={imagePath}
-            alt={`${props.article.title} image`}
-            onError={() =>
-              setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
-            }
-          />
-        </div>
+        <NavLink to={`/magazine/${props.article.id}`} className="link-cover">
+          <div className="img-wrap">
+            <img
+              src={imagePath}
+              alt={`${props.article.title} image`}
+              onError={() =>
+                setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
+              }
+            />
+          </div>
+        </NavLink>
         <div className="content">
           <div className="text">
-            <h3>{props.article.title}</h3>
+            <NavLink
+              to={`/magazine/${props.article.id}`}
+              className="link-cover"
+            >
+              <h3>{props.article.title}</h3>
+            </NavLink>
             <p>{props.article.text}</p>
           </div>
           <div className="info">

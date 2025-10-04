@@ -1,4 +1,3 @@
-import { NavLink } from "react-router";
 import ArticleItem from "../ArticleCard/ArticleCard";
 import "./style.scss";
 import HoverLink from "../HoverLink/HoverLink";

@@ -1,0 +1,13 @@
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        font-size: 6.5rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 110%;
+        text-transform: uppercase;
+    }
+}

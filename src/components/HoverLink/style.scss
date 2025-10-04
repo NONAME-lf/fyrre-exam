@@ -13,15 +13,22 @@
     position: relative;
     left: 0;
     transition: all .3s;
+    display: inline-block;
+    height: 100%;
     color: #000;
 }
 
 .highlight {
     position: relative;
+    display: inline-block;
+    height: 100%;
 
+    &::before {
+        left: -5%;
+    }
 }
 
-a::before,
+a.hover-link::before,
 .highlight::before {
     content: '';
     display: block;
@@ -35,7 +42,7 @@ a::before,
     transform: translateX(-10%);
 }
 
-a {
+a.hover-link {
     color: #000;
     line-height: normal;
     height: 100%;
@@ -44,7 +51,7 @@ a {
 }
 
 // HOVER
-a:hover {
+a.hover-link:hover {
     color: #fff;
 
     .hover-span {
@@ -53,6 +60,7 @@ a:hover {
 
     .highlight::before {
         width: 140%;
+        // height: 92%;
     }
 
     &::after {
@@ -65,20 +73,24 @@ a:hover {
 }
 
 
-a::after {
+a.hover-link::after {
     content: '';
     display: block;
     height: 2px;
     background: #000;
     transition: width .3s;
     width: 0;
-    position: relative;
-    top: 3px;
+    position: absolute;
+    bottom: -20%;
 }
 
-a:active {
+a.hover-link:active {
     .hover-span {
         left: 0;
+        color: #fff;
+    }
+
+    .highlight {
         color: #fff;
     }
 

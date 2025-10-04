@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import NewsTicker from "../components/NewsTicker/NewsTicker";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import LeadArticle from "../components/LeadArticle/LeadArticle";
 import ArticlesSection from "../components/ArticlesSection/ArticlesSection";
 import PodcastsSection from "../components/PodcastsSection/PodcastsSection";
@@ -9,22 +9,23 @@ import SiteFooter from "../components/SiteFooter/SiteFooter";
 
 export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
+  const [data, setData] = useState(null);
+  const [shows, setShows] = useState([]);
+  const [episodes, setEpisodes] = useState([]);
   const [articles, setArticles] = useState([]);
   const [accessToken, setAccessToken] = useState("");
 
-  const searchArticles = async () => {
+  const searchData = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.BASE_URL}/mocks/articles.json`
+        `${import.meta.env.BASE_URL}/mocks/data.json`
       );
       if (response.ok) {
         const data = await response.json();
-        const lead = data.find((article) => article.lead === "true");
-        setLeadArticle(lead);
-        setArticles(data.filter((article) => article.id !== lead.id));
+        setData(data);
       } else {
         throw new Error(
-          "Failed to fetch articles, with status: " + response.status
+          "Failed to fetch data, with status: " + response.status
         );
       }
     } catch (error) {
@@ -32,11 +33,39 @@ export default function HomePage() {
     }
   };
 
+  const getArticle = () => {
+    if (!data?.articles) return;
+    const tmp_articles = data.articles;
+    const lead = tmp_articles.find((article) => article.lead === "true");
+    setLeadArticle(lead);
+    setArticles(tmp_articles.filter((article) => article.id !== lead.id));
+  };
+
+  const getSpotifyShows = async () => {
+    if (!accessToken || !data) return;
+    const tmp_shows = await requestSpotifyData();
+    setShows(tmp_shows);
+  };
+
   useEffect(() => {
-    searchArticles();
+    searchData();
+  }, []);
+
+  useEffect(() => {
+    getArticle();
+  }, [data]);
+
+  useEffect(() => {
     !accessToken && requestSpotifyToken();
-    accessToken && requestSpotifyData();
   }, [accessToken]);
+
+  useEffect(() => {
+    getSpotifyShows();
+  }, [accessToken, data]);
+
+  useEffect(() => {
+    getEpisodes();
+  }, [shows]);
 
   const requestSpotifyToken = async () => {
     if (accessToken) return;
@@ -56,29 +85,50 @@ export default function HomePage() {
         body: new URLSearchParams({ grant_type: "client_credentials" }),
       });
       if (response.ok) {
-        const data = await response.json();
-        setAccessToken(data.access_token);
-        console.log(data);
+        const tocken_data = await response.json();
+        setAccessToken(tocken_data.access_token);
+        console.log("TOKEN: ", tocken_data);
       }
     } catch (error) {
       console.error(error);
     }
   };
+
+  // &market=US&locale=en-US
   const requestSpotifyData = async () => {
+    if (!accessToken || !data?.episodes) return;
     try {
-      const response = await fetch(
-        // "https://api.spotify.com/v1/me/shows?limit=5&offset=0",
-        "https://api.spotify.com/v1/search?q=art&type=show&limit=5",
-        {
-          method: "GET",
-          headers: { Authorization: "Bearer " + accessToken },
+      const showsIds = data.episodes;
+      const showItems = [];
+      for (const show of showsIds) {
+        const response = await fetch(
+          `https://api.spotify.com/v1/shows/${show.id}`,
+          {
+            method: "GET",
+            headers: { Authorization: "Bearer " + accessToken },
+          }
+        );
+        if (response.ok) {
+          const tmp_data = await response.json();
+          showItems.push(tmp_data);
+        } else {
+          throw new Error(
+            "Failed to fetch data, with status: " + response.status
+          );
         }
-      );
-      const data = await response.json();
-      console.log(data);
+      }
+      console.log("SPOTIFY SHOWS: ", showItems);
+      return showItems;
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const getEpisodes = () => {
+    if (!shows || shows.length === 0) return;
+    shows.forEach((show) => {
+      setEpisodes((prevEpisodes) => [...prevEpisodes, show.episodes.items[0]]);
+    });
   };
 
   return (
@@ -125,7 +175,7 @@ export default function HomePage() {
       <NewsTicker />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
-      <PodcastsSection />
+      <PodcastsSection episodes={episodes} />
       {/* 
       <AuthorsSection />
       <SiteFooter /> */}
