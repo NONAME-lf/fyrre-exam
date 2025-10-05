@@ -94,6 +94,35 @@ body {
     margin-bottom: 75.71px;
 }
 
+//  <== ARTICLES SECTION ==>
+.articles-section {
+    margin-bottom: 96px;
+}
+
+//  <== SECTION HEADER ==>
+.section-header {
+    margin-bottom: 96px;
+    padding-top: 48px;
+}
+
+//  <== PODCASTS SECTION ==>
+.podcasts-section {
+    li {
+        .grid-border {
+            border: 1px solid #000;
+        }
+
+        &:first-child .grid-border {
+            border-left: 1px solid #000;
+            border-right: unset;
+        }
+
+        &:last-child .grid-border {
+            border-right: 1px solid #000;
+        }
+    }
+}
+
 // <== LEAD ARTICLE ==>
 .lead-article {
     // padding-top: 75.71px;

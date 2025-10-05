@@ -8,8 +8,12 @@ export default function PodcastCard(props) {
   const hours = Math.floor(minutes / 60);
 
   return (
-    <div className={`podcast-card ${props.orientation || "horizontal"}`}>
-      <NavLink to={`/Podcast/${props.episode.id}`} className="link-cover">
+    <div
+      className={`podcast-card ${props.orientation || "horizontal"} ${
+        props.border || ""
+      }`}
+    >
+      <NavLink to={`/Podcast/${props.episode.id}`} className="link-hover">
         <div className="img-wrap">
           <div className="color-layer">
             <hgroup>
@@ -30,7 +34,7 @@ export default function PodcastCard(props) {
         </div>
       </NavLink>
       <div className="content">
-        <NavLink to={`/Podcast/${props.episode.id}`} className="link-cover">
+        <NavLink to={`/Podcast/${props.episode.id}`} className="link-hover">
           <h3 className="title">{props.episode.name}</h3>
         </NavLink>
         <div className="info">

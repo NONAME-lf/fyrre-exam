@@ -1,5 +1,11 @@
 .podcasts-section {
     .podcast-list {
         display: flex;
+        flex-wrap: wrap;
+
+        li {
+            flex: 1 1 400px;
+        }
     }
+
 }

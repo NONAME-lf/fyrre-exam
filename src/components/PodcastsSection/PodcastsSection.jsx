@@ -1,10 +1,14 @@
 import SectionHeader from "../SectionHeader/SectionHeader";
 import PodcastCard from "../PodcastCard/PodcastCard";
 import "./style.scss";
+import { useEffect, useState } from "react";
 
 export default function PodcastSection(props) {
-  console.log("SPOTIFY EPISODES", props);
-
+  // console.log("SPOTIFY EPISODES", props);
+  const [epQnt, setEpQnt] = useState(3);
+  useEffect(() => {
+    props.qnt(epQnt);
+  }, [epQnt]);
   return (
     <section className="podcasts-section">
       <SectionHeader title="Podcasts" />
@@ -17,6 +21,7 @@ export default function PodcastSection(props) {
                 episodeNum={
                   props.episodes.length - props.episodes.indexOf(episode)
                 }
+                border={"grid-border"}
               />
             </li>
           );

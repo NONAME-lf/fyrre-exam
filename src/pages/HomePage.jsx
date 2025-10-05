@@ -14,6 +14,7 @@ export default function HomePage() {
   const [episodes, setEpisodes] = useState([]);
   const [articles, setArticles] = useState([]);
   const [accessToken, setAccessToken] = useState("");
+  const [quantity, setQuantity] = useState(3);
 
   const searchData = async () => {
     try {
@@ -47,6 +48,11 @@ export default function HomePage() {
     setShows(tmp_shows);
   };
 
+  const getQuantity = (quantity) => {
+    setQuantity(quantity);
+    // getEpisodes(quantity);
+  };
+
   useEffect(() => {
     searchData();
   }, []);
@@ -64,7 +70,7 @@ export default function HomePage() {
   }, [accessToken, data]);
 
   useEffect(() => {
-    getEpisodes();
+    getEpisodes(quantity);
   }, [shows]);
 
   const requestSpotifyToken = async () => {
@@ -138,16 +144,6 @@ export default function HomePage() {
         }
       });
     });
-
-    // for (let i = 0; i < shows.length; i++) {
-    //   if (!shows[i].episodes) continue;
-    //   if (episodeList.length >= 5) break;
-
-    //   shows[i].episodes.items.forEach((episode) => {
-    //     setEpisodes((prevEpisodes) => [...prevEpisodes, episode]);
-    //   });
-    //   return;
-    // }
   };
 
   return (
@@ -194,7 +190,7 @@ export default function HomePage() {
       <NewsTicker />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
-      <PodcastsSection episodes={episodes} />
+      <PodcastsSection episodes={episodes} qnt={getQuantity} />
       {/* 
       <AuthorsSection />
       <SiteFooter /> */}
