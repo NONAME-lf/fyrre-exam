@@ -78,11 +78,9 @@
       "lead": "false"
     }
   ],
-  "episodes": [
-    { "id": "4hadEdrk9N6pxgfID6RT1Q" },
-    { "id": "5tC8LcpjpePDY1fAbUJXy5" },
-    { "id": "7DCblb4zBH9RsIISDKZnux" },
-    { "id": "41zWZdWCpVQrKj7ykQnXRc" },
-    { "id": "1tMyVKbZhA8ybRBOrnSUsO" }
+  "shows": [
+    { "id": "7v7RLfDLO9YKzJHoBYGeDx" },
+    { "id": "25SUibTgifXMhS5JCgN33T" },
+    { "id": "5tC8LcpjpePDY1fAbUJXy5" }
   ]
 }

@@ -87,7 +87,7 @@ export default function HomePage() {
       if (response.ok) {
         const tocken_data = await response.json();
         setAccessToken(tocken_data.access_token);
-        console.log("TOKEN: ", tocken_data);
+        // console.log("TOKEN: ", tocken_data);
       }
     } catch (error) {
       console.error(error);
@@ -96,9 +96,9 @@ export default function HomePage() {
 
   // &market=US&locale=en-US
   const requestSpotifyData = async () => {
-    if (!accessToken || !data?.episodes) return;
+    if (!accessToken || !data?.shows) return;
     try {
-      const showsIds = data.episodes;
+      const showsIds = data.shows;
       const showItems = [];
       for (const show of showsIds) {
         const response = await fetch(
@@ -117,18 +117,37 @@ export default function HomePage() {
           );
         }
       }
-      console.log("SPOTIFY SHOWS: ", showItems);
+      // console.log("SPOTIFY SHOWS: ", showItems);
       return showItems;
     } catch (error) {
       console.error(error);
     }
   };
 
-  const getEpisodes = () => {
+  const getEpisodes = (quantity) => {
     if (!shows || shows.length === 0) return;
+    // console.log("SHOWS: ", shows);
+    const episodeList = [];
     shows.forEach((show) => {
-      setEpisodes((prevEpisodes) => [...prevEpisodes, show.episodes.items[0]]);
+      if (!show.episodes) return;
+      show.episodes.items.forEach((episode) => {
+        if (episodeList.length < quantity) episodeList.push(episode);
+        else {
+          setEpisodes(episodeList);
+          return;
+        }
+      });
     });
+
+    // for (let i = 0; i < shows.length; i++) {
+    //   if (!shows[i].episodes) continue;
+    //   if (episodeList.length >= 5) break;
+
+    //   shows[i].episodes.items.forEach((episode) => {
+    //     setEpisodes((prevEpisodes) => [...prevEpisodes, episode]);
+    //   });
+    //   return;
+    // }
   };
 
   return (
