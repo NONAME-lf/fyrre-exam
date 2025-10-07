@@ -8,8 +8,8 @@ export default function SectionHeader(props) {
       <h2>{props.title}</h2>
       <HoverLink
         to="/magazine"
-        highlight="All&nbsp;"
-        text="Episodes"
+        highlight={props.highlight}
+        text={props.text}
         icon=""
       />
     </div>

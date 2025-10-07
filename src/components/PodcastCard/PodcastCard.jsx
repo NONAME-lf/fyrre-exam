@@ -21,7 +21,8 @@ export default function PodcastCard(props) {
               <p className="podcast-title">Podcast</p>
             </hgroup>
             <div className="misc">
-              <span className="episode">{props.episodeNum}</span>
+              <span className="episode">EP {props.episodeNum}</span>
+              <div className="arrow"></div>
             </div>
           </div>
           <img

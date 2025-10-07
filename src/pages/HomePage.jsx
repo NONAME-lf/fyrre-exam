@@ -191,8 +191,8 @@ export default function HomePage() {
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
       <PodcastsSection episodes={episodes} qnt={getQuantity} />
-      {/* 
       <AuthorsSection />
+      {/* 
       <SiteFooter /> */}
     </>
   );

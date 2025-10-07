@@ -11,7 +11,7 @@ export default function PodcastSection(props) {
   }, [epQnt]);
   return (
     <section className="podcasts-section">
-      <SectionHeader title="Podcasts" />
+      <SectionHeader title="Podcasts" highlight="All&nbsp;" text="Episodes" />
       <ul className="podcast-list">
         {props.episodes.map((episode) => {
           return (
