@@ -129,7 +129,37 @@
   ],
   "footerData": {
     "form": {
-      "title": "Design News to your inbox"
+      "title": "Design News to your inbox",
+      "labels": [
+        {
+          "id": "userName",
+          "autocomplete": "name",
+          "placeholder": "Name",
+          "type": "text",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 50,
+          "regex": "^[a-zA-Zà-žÀ-Ž' -]+$",
+          "className": "name-input"
+        },
+        {
+          "id": "userEmail",
+          "autocomplete": "email",
+          "placeholder": "Email",
+          "type": "email",
+          "required": true,
+          "minLength": 5,
+          "maxLength": 100,
+          "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+          "className": "email-input"
+        },
+        {
+          "id": "submit-button",
+          "type": "submit",
+          "text": "Sign up",
+          "className": "btn"
+        }
+      ]
     },
     "nav": {
       "menu": [

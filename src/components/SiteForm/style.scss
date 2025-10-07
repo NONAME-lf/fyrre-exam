@@ -1,0 +1,28 @@
+:root {
+    form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 70px;
+
+        h2 {
+            color: #F9F9F9;
+            font-size: 5rem;
+            font-weight: 600;
+            line-height: 110%;
+            text-transform: uppercase;
+            max-width: 790px;
+        }
+
+        .labels {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 309px;
+        }
+
+        input {
+            width: 100%;
+        }
+    }
+}

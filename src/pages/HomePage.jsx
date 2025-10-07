@@ -5,6 +5,7 @@ import LeadArticle from "../components/LeadArticle/LeadArticle";
 import ArticlesSection from "../components/ArticlesSection/ArticlesSection";
 import PodcastsSection from "../components/PodcastsSection/PodcastsSection";
 import AuthorsSection from "../components/AuthorsSection/AuthorsSection";
+import { getData } from "../helpers";
 
 export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
@@ -13,23 +14,23 @@ export default function HomePage() {
   const [dataAuthors, setDataAuthors] = useState(null);
   const [articles, setArticles] = useState([]);
 
-  const getData = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.BASE_URL}/mocks/data.json`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
-      } else {
-        throw new Error(
-          "Failed to fetch data, with status: " + response.status
-        );
-      }
-    } catch (error) {
-      toast.error("Error occured: " + error.message, { theme: "dark" });
-    }
-  };
+  // const getData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       `${import.meta.env.BASE_URL}/mocks/data.json`
+  //     );
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       setData(data);
+  //     } else {
+  //       throw new Error(
+  //         "Failed to fetch data, with status: " + response.status
+  //       );
+  //     }
+  //   } catch (error) {
+  //     toast.error("Error occured: " + error.message, { theme: "dark" });
+  //   }
+  // };
 
   const getArticle = () => {
     if (!data?.articles) return;
@@ -40,7 +41,8 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    getData();
+    // getData();
+    getData().then((res) => setData(res));
   }, []);
 
   useEffect(() => {

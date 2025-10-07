@@ -1,33 +1,49 @@
-export default function SiteForm() {
+import "./style.scss";
+import SiteButton from "../SiteButton/SiteButton";
+import InputLabel from "../InputLabel/InputLabel";
+import { useEffect, useState } from "react";
+
+export default function SiteForm({ form }) {
+  const [formLabels, setFormLabels] = useState([]);
+
+  //   console.log(form);
+
+  const getLabels = () => {
+    if (!form?.labels) return;
+    form.labels.forEach((element) => {
+      setFormLabels((formLabels) => [...formLabels, element]);
+    });
+  };
+
+  useEffect(() => {
+    getLabels();
+  }, [form]);
+
   return (
     <form method="post">
-      <h2>Design News to your inbox</h2>
-      <label htmlFor="userName">
-        <input
-          id="userName"
-          name="userName"
-          autoComplete="name"
-          placeholder="Name"
-          type="text"
-          className="name-input"
-        />
-        <span className="placeholder">Name</span>
-      </label>
-      <label htmlFor="userEmail">
-        <input
-          id="userEmail"
-          name="userEmail"
-          autoComplete="email"
-          placeholder="Email"
-          type="text"
-          className="email-input"
-        />
-        <span className="placeholder">Email</span>
-      </label>
-      <button id="submit-button" type="submit" className="btn glow-on-hover">
-        {/* <!-- use span here instead of div, because div elements isn't allowed inside of button --> */}
-        <span className="holographic-card">Submit</span>
-      </button>
+      <h2>{form?.title}</h2>
+      <div className="labels">
+        {formLabels.map((label, index) =>
+          label.type !== "submit" ? (
+            <InputLabel
+              key={index}
+              id={label.id}
+              type={label.type}
+              placeholder={label.placeholder}
+              className={label.className}
+              autoComplete={label.autoComplete}
+            />
+          ) : (
+            label.type === "submit" && (
+              <SiteButton
+                key={index}
+                className={label.className}
+                text={label.text}
+              />
+            )
+          )
+        )}
+      </div>
     </form>
   );
 }
