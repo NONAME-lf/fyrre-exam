@@ -109,19 +109,14 @@ body {
 .podcasts-section {
     margin-bottom: 192px;
 
+    &>ul {
+        padding: 1px;
+        gap: 1px;
+        background-color: #000;
+    }
+
     li {
-        .grid-border {
-            border: 1px solid #000;
-        }
-
-        &:first-child .grid-border {
-            border-left: 1px solid #000;
-            border-right: unset;
-        }
-
-        &:last-child .grid-border {
-            border-right: 1px solid #000;
-        }
+        background-color: #fff;
     }
 }
 
