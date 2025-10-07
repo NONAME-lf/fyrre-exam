@@ -1,0 +1,17 @@
+.authors-section {
+
+    ul {
+        background-color: #000;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1px;
+        gap: 1px;
+
+        li {
+            background-color: #fff;
+            min-width: calc(50% - 1px);
+            width: 100%;
+            flex: 1 1 500px;
+        }
+    }
+}

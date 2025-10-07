@@ -126,5 +126,23 @@
     { "id": "7v7RLfDLO9YKzJHoBYGeDx" },
     { "id": "25SUibTgifXMhS5JCgN33T" },
     { "id": "5tC8LcpjpePDY1fAbUJXy5" }
-  ]
+  ],
+  "footerData": {
+    "form": {
+      "title": "Design News to your inbox"
+    },
+    "nav": {
+      "menu": [
+        { "id": 1, "title": "Art", "to": "/art" },
+        { "id": 2, "title": "Design", "to": "/design" },
+        { "id": 3, "title": "Architecture", "to": "/architecture" },
+        { "id": 4, "title": "Magazine", "to": "/magazine" },
+        { "id": 5, "title": "Podcast", "to": "/podcast" },
+        { "id": 6, "title": "Authors", "to": "/authors" },
+        { "id": 7, "title": "Styleguide", "to": "/styleguide" },
+        { "id": 8, "title": "Licensing", "to": "/licensing" },
+        { "id": 9, "title": "Changelog", "to": "/changelog" }
+      ]
+    }
+  }
 }

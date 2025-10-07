@@ -5,14 +5,15 @@ import LeadArticle from "../components/LeadArticle/LeadArticle";
 import ArticlesSection from "../components/ArticlesSection/ArticlesSection";
 import PodcastsSection from "../components/PodcastsSection/PodcastsSection";
 import AuthorsSection from "../components/AuthorsSection/AuthorsSection";
-import SiteFooter from "../components/SiteFooter/SiteFooter";
 
 export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
   const [data, setData] = useState(null);
+  const [dataShows, setDataShows] = useState(null);
+  const [dataAuthors, setDataAuthors] = useState(null);
   const [articles, setArticles] = useState([]);
 
-  const searchData = async () => {
+  const getData = async () => {
     try {
       const response = await fetch(
         `${import.meta.env.BASE_URL}/mocks/data.json`
@@ -39,11 +40,13 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    searchData();
+    getData();
   }, []);
 
   useEffect(() => {
     getArticle();
+    setDataShows(data?.shows);
+    setDataAuthors(data?.authors);
   }, [data]);
 
   return (
@@ -90,10 +93,8 @@ export default function HomePage() {
       <NewsTicker />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
-      <PodcastsSection data={data} />
-      <AuthorsSection />
-      {/* 
-      <SiteFooter /> */}
+      <PodcastsSection data={dataShows} />
+      <AuthorsSection data={dataAuthors} />
     </>
   );
 }

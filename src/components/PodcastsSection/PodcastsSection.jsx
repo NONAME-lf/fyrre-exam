@@ -4,13 +4,10 @@ import "./style.scss";
 import { useEffect, useState } from "react";
 
 export default function PodcastSection(props) {
-  const [epQnt, setEpQnt] = useState(3);
   const [shows, setShows] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [quantity, setQuantity] = useState(3);
   const [accessToken, setAccessToken] = useState("");
-
-  // console.log("SPOTIFY EPISODES");
 
   useEffect(() => {
     !accessToken && requestSpotifyToken();
@@ -59,9 +56,9 @@ export default function PodcastSection(props) {
 
   // &market=US&locale=en-US
   const requestSpotifyData = async () => {
-    if (!accessToken || !props.data?.shows) return;
+    if (!accessToken || !props.data) return;
     try {
-      const showsIds = props.data.shows;
+      const showsIds = props.data;
       const showItems = [];
       for (const show of showsIds) {
         const response = await fetch(
