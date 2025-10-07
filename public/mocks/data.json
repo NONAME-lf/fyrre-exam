@@ -78,6 +78,50 @@
       "lead": "false"
     }
   ],
+  "authors": [
+    {
+      "id": "1",
+      "name": "Jakob Grønberg",
+      "job": "Artist",
+      "city": "Berlin",
+      "img": "jakob-gronberg-artist.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Louise Jensen",
+      "job": "Artist",
+      "city": "Stockholm",
+      "img": "louise-jensen-artist.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Anne Henry",
+      "job": "Photograph",
+      "city": "New York",
+      "img": "anne-henry-photograph.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Anna Nielsen",
+      "job": "Columnists",
+      "city": "Copenhagen",
+      "img": "anna-nielsen-columnists.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Jane Cooper",
+      "job": "Artist",
+      "city": "Berlin",
+      "img": "jane-cooper-artist.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Cristofer Vaccaro",
+      "job": "Artist",
+      "city": "Lisbon",
+      "img": "cristofer-vaccaro-artist.jpg"
+    }
+  ],
   "shows": [
     { "id": "7v7RLfDLO9YKzJHoBYGeDx" },
     { "id": "25SUibTgifXMhS5JCgN33T" },

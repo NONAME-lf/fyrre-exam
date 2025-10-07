@@ -10,11 +10,7 @@ import SiteFooter from "../components/SiteFooter/SiteFooter";
 export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
   const [data, setData] = useState(null);
-  const [shows, setShows] = useState([]);
-  const [episodes, setEpisodes] = useState([]);
   const [articles, setArticles] = useState([]);
-  const [accessToken, setAccessToken] = useState("");
-  const [quantity, setQuantity] = useState(3);
 
   const searchData = async () => {
     try {
@@ -42,17 +38,6 @@ export default function HomePage() {
     setArticles(tmp_articles.filter((article) => article.id !== lead.id));
   };
 
-  const getSpotifyShows = async () => {
-    if (!accessToken || !data) return;
-    const tmp_shows = await requestSpotifyData();
-    setShows(tmp_shows);
-  };
-
-  const getQuantity = (quantity) => {
-    setQuantity(quantity);
-    // getEpisodes(quantity);
-  };
-
   useEffect(() => {
     searchData();
   }, []);
@@ -60,91 +45,6 @@ export default function HomePage() {
   useEffect(() => {
     getArticle();
   }, [data]);
-
-  useEffect(() => {
-    !accessToken && requestSpotifyToken();
-  }, [accessToken]);
-
-  useEffect(() => {
-    getSpotifyShows();
-  }, [accessToken, data]);
-
-  useEffect(() => {
-    getEpisodes(quantity);
-  }, [shows]);
-
-  const requestSpotifyToken = async () => {
-    if (accessToken) return;
-    try {
-      const response = await fetch("https://accounts.spotify.com/api/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization:
-            "Basic " +
-            btoa(
-              `${import.meta.env.VITE_SPOTIFY_CLIENT_ID}:${
-                import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
-              }`
-            ),
-        },
-        body: new URLSearchParams({ grant_type: "client_credentials" }),
-      });
-      if (response.ok) {
-        const tocken_data = await response.json();
-        setAccessToken(tocken_data.access_token);
-        // console.log("TOKEN: ", tocken_data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // &market=US&locale=en-US
-  const requestSpotifyData = async () => {
-    if (!accessToken || !data?.shows) return;
-    try {
-      const showsIds = data.shows;
-      const showItems = [];
-      for (const show of showsIds) {
-        const response = await fetch(
-          `https://api.spotify.com/v1/shows/${show.id}`,
-          {
-            method: "GET",
-            headers: { Authorization: "Bearer " + accessToken },
-          }
-        );
-        if (response.ok) {
-          const tmp_data = await response.json();
-          showItems.push(tmp_data);
-        } else {
-          throw new Error(
-            "Failed to fetch data, with status: " + response.status
-          );
-        }
-      }
-      // console.log("SPOTIFY SHOWS: ", showItems);
-      return showItems;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const getEpisodes = (quantity) => {
-    if (!shows || shows.length === 0) return;
-    // console.log("SHOWS: ", shows);
-    const episodeList = [];
-    shows.forEach((show) => {
-      if (!show.episodes) return;
-      show.episodes.items.forEach((episode) => {
-        if (episodeList.length < quantity) episodeList.push(episode);
-        else {
-          setEpisodes(episodeList);
-          return;
-        }
-      });
-    });
-  };
 
   return (
     <>
@@ -190,7 +90,7 @@ export default function HomePage() {
       <NewsTicker />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
-      <PodcastsSection episodes={episodes} qnt={getQuantity} />
+      <PodcastsSection data={data} />
       <AuthorsSection />
       {/* 
       <SiteFooter /> */}
