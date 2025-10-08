@@ -129,20 +129,49 @@
   ],
   "footerData": {
     "form": {
-      "title": "Design News to your inbox"
-    },
-    "nav": {
-      "menu": [
-        { "id": 1, "title": "Art", "to": "/art" },
-        { "id": 2, "title": "Design", "to": "/design" },
-        { "id": 3, "title": "Architecture", "to": "/architecture" },
-        { "id": 4, "title": "Magazine", "to": "/magazine" },
-        { "id": 5, "title": "Podcast", "to": "/podcast" },
-        { "id": 6, "title": "Authors", "to": "/authors" },
-        { "id": 7, "title": "Styleguide", "to": "/styleguide" },
-        { "id": 8, "title": "Licensing", "to": "/licensing" },
-        { "id": 9, "title": "Changelog", "to": "/changelog" }
+      "title": "Design News to your inbox",
+      "labels": [
+        {
+          "id": "userName",
+          "autocomplete": "name",
+          "placeholder": "Name",
+          "type": "text",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 50,
+          "regex": "^[a-zA-Zà-žÀ-Ž' -]+$",
+          "className": "name-input"
+        },
+        {
+          "id": "userEmail",
+          "autocomplete": "email",
+          "placeholder": "Email",
+          "type": "email",
+          "required": true,
+          "minLength": 5,
+          "maxLength": 100,
+          "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+          "className": "email-input"
+        },
+        {
+          "id": "submit-button",
+          "type": "submit",
+          "text": "Sign up",
+          "className": "btn"
+        }
       ]
-    }
+    },
+    "nav": [
+      { "id": 1, "title": "Art", "to": "/art" },
+      { "id": 2, "title": "Design", "to": "/design" },
+      { "id": 3, "title": "Architecture", "to": "/architecture" },
+      { "id": 4, "title": "Magazine", "to": "/magazine" },
+      { "id": 5, "title": "Podcast", "to": "/podcast" },
+      { "id": 6, "title": "Authors", "to": "/authors" },
+      { "id": 7, "title": "Styleguide", "to": "/styleguide" },
+      { "id": 8, "title": "Licensing", "to": "/licensing" },
+      { "id": 9, "title": "Changelog", "to": "/changelog" }
+    ],
+    "copyright": "© Designed by Pawel Gola. Developed by Aman Singh Bhogal. All content belongs to their respective copyright holders."
   }
 }
