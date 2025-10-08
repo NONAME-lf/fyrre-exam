@@ -2,9 +2,14 @@ import "./style.scss";
 
 export default function SocList(props) {
   return (
-    <>
-      <li>
-        <a href="#" target="_blank" rel="noopener noreferrer nofollow">
+    <ul className="soc-list">
+      <li className={props.inverted || ""}>
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          className={props.inverted}
+        >
           {props.isHeader ? (
             <>
               <svg
@@ -31,7 +36,7 @@ export default function SocList(props) {
           )}
         </a>
       </li>
-      <li>
+      <li className={props.inverted || ""}>
         <a href="#" target="_blank" rel="noopener noreferrer nofollow">
           {props.isHeader ? (
             <>
@@ -59,7 +64,7 @@ export default function SocList(props) {
           )}
         </a>
       </li>
-      <li>
+      <li className={props.inverted || ""}>
         <a href="#" target="_blank" rel="noopener noreferrer nofollow">
           {props.isHeader ? (
             <>
@@ -87,7 +92,7 @@ export default function SocList(props) {
           )}
         </a>
       </li>
-      <li>
+      <li className={props.inverted || ""}>
         <a href="#" target="_blank" rel="noopener noreferrer nofollow">
           {props.isHeader ? (
             <>
@@ -115,6 +120,6 @@ export default function SocList(props) {
           )}
         </a>
       </li>
-    </>
+    </ul>
   );
 }

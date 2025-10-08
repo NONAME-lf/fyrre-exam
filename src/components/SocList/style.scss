@@ -1,4 +1,31 @@
-li svg {
-    height: 20px;
-    width: 20px;
+.soc-list {
+    display: flex;
+    gap: 12px;
+
+    li svg {
+        height: 20px;
+        width: 20px;
+        fill: #000;
+        transform: scale(1);
+    }
+
+    .inverted svg {
+        fill: #fff;
+    }
+
+    a {
+        opacity: 1;
+        transition: all 0.2s ease;
+    }
+
+    a:hover {
+        svg {
+            transition: all 0.2s ease;
+            transform: scale(1.2);
+        }
+    }
+
+    a:active {
+        opacity: 0.6;
+    }
 }

@@ -1,8 +1,12 @@
 import NewsTicker from "../NewsTicker/NewsTicker";
 import SiteForm from "../SiteForm/SiteForm";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { getData } from "../../helpers.js";
 import "./style.scss";
+import FooterNav from "../FooterNav/FooterNav.jsx";
+import { NavLink } from "react-router";
+import logo from "../../assets/img/fyrre-logo.svg";
+import SocList from "../SocList/SocList";
 
 export default function SiteFooter() {
   const [footerData, setFooterData] = useState([]);
@@ -11,13 +15,25 @@ export default function SiteFooter() {
     getData().then((res) => setFooterData(res.footerData));
   }, []);
 
-  // console.log(footerData);
-
   return (
     <footer>
       <NewsTicker />
       <div className="container">
         <SiteForm form={footerData.form} />
+        <div className="nav-div">
+          <NavLink to="/">
+            <div className="img-wrap">
+              <img src={logo} alt="Fyrre Magazine Logo" className="logo" />
+            </div>
+          </NavLink>
+          <FooterNav nav={footerData.nav} />
+        </div>
+        <div className="misc">
+          <span className="copyright">{footerData.copyright}</span>
+          <ul className="soc-list">
+            <SocList inverted={"inverted"} />
+          </ul>
+        </div>
       </div>
     </footer>
   );

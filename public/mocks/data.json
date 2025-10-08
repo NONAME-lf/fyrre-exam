@@ -161,18 +161,17 @@
         }
       ]
     },
-    "nav": {
-      "menu": [
-        { "id": 1, "title": "Art", "to": "/art" },
-        { "id": 2, "title": "Design", "to": "/design" },
-        { "id": 3, "title": "Architecture", "to": "/architecture" },
-        { "id": 4, "title": "Magazine", "to": "/magazine" },
-        { "id": 5, "title": "Podcast", "to": "/podcast" },
-        { "id": 6, "title": "Authors", "to": "/authors" },
-        { "id": 7, "title": "Styleguide", "to": "/styleguide" },
-        { "id": 8, "title": "Licensing", "to": "/licensing" },
-        { "id": 9, "title": "Changelog", "to": "/changelog" }
-      ]
-    }
+    "nav": [
+      { "id": 1, "title": "Art", "to": "/art" },
+      { "id": 2, "title": "Design", "to": "/design" },
+      { "id": 3, "title": "Architecture", "to": "/architecture" },
+      { "id": 4, "title": "Magazine", "to": "/magazine" },
+      { "id": 5, "title": "Podcast", "to": "/podcast" },
+      { "id": 6, "title": "Authors", "to": "/authors" },
+      { "id": 7, "title": "Styleguide", "to": "/styleguide" },
+      { "id": 8, "title": "Licensing", "to": "/licensing" },
+      { "id": 9, "title": "Changelog", "to": "/changelog" }
+    ],
+    "copyright": "© Designed by Pawel Gola. Developed by Aman Singh Bhogal. All content belongs to their respective copyright holders."
   }
 }

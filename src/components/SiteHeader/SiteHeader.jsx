@@ -11,7 +11,7 @@ export default function SiteHeader() {
       <Container>
         <NavLink className="link" to="/">
           <div className="img-wrap">
-            <img className="logo" src={logo} alt="Fyrre Logo" />
+            <img className="logo" src={logo} alt="Fyrre Magazine Logo" />
           </div>
         </NavLink>
         <nav className="main-menu">
@@ -28,7 +28,9 @@ export default function SiteHeader() {
             <li>
               <span className="divider"></span>
             </li>
-            <SocList isHeader={true} />
+            <li>
+              <SocList isHeader={true} />
+            </li>
           </ul>
         </nav>
       </Container>
