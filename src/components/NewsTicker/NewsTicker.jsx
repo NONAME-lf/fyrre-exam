@@ -15,28 +15,10 @@ export default function NewsTicker(props) {
     let tickerWidth = ticker.offsetWidth;
 
     if (props?.newsTicker?.title && !props.newsTicker?.news) {
-      console.log([props, ticker]);
-
-      if (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
-        let i = 0;
-        while (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
-          const li = document.createElement("li");
-          li.innerHTML = title.outerHTML;
-          ticker.appendChild(li);
-          tickerWidth = ticker.offsetWidth;
-          i++;
-        }
-      }
-    }
-
-    if (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
-      let i = 0;
-      while (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
-        if (i >= ticker.children.length) i = 0;
-        const itemClone = ticker.children[i].cloneNode(true);
-        ticker.appendChild(itemClone);
-        i++;
-      }
+      fillTicker(ticker, tickerWidth, titleWidth, title);
+      tickerWidth = ticker.offsetWidth;
+    } else if (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
+      fillTicker(ticker, tickerWidth, titleWidth);
     }
 
     const widthDiff = ticker.parentElement.offsetWidth - tickerWidth;
@@ -83,6 +65,33 @@ export default function NewsTicker(props) {
 
     return () => cancelAnimationFrame(step);
   }
+
+  // Function to fill the ticker with items if there's not enough
+  const fillTicker = (ticker, tickerWidth, titleWidth, title = null) => {
+    if (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
+      let i = 0;
+      while (
+        tickerWidth < ticker.parentElement.offsetWidth - titleWidth &&
+        title &&
+        i < 20
+      ) {
+        const li = document.createElement("li");
+        li.innerHTML = title.outerHTML;
+        ticker.appendChild(li);
+        tickerWidth = ticker.offsetWidth;
+        i++;
+      }
+      while (
+        tickerWidth < ticker.parentElement.offsetWidth - titleWidth &&
+        !title
+      ) {
+        if (i >= ticker.children.length) i = 0;
+        const itemClone = ticker.children[i].cloneNode(true);
+        ticker.appendChild(itemClone);
+        i++;
+      }
+    }
+  };
 
   useEffect(() => {
     moveTicker();
