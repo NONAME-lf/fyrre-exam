@@ -13,24 +13,19 @@ export default function HomePage() {
   const [dataShows, setDataShows] = useState(null);
   const [dataAuthors, setDataAuthors] = useState(null);
   const [articles, setArticles] = useState([]);
+  const [leadNewsTicker, setLeadNewsTicker] = useState(null);
 
-  // const getData = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `${import.meta.env.BASE_URL}/mocks/data.json`
-  //     );
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       setData(data);
-  //     } else {
-  //       throw new Error(
-  //         "Failed to fetch data, with status: " + response.status
-  //       );
-  //     }
-  //   } catch (error) {
-  //     toast.error("Error occured: " + error.message, { theme: "dark" });
-  //   }
-  // };
+  const getLeadNewsTicker = () => {
+    if (!data?.newsTickers) return;
+    const tmp_newsTickers = data.newsTickers;
+
+    const lead = tmp_newsTickers.find(
+      (newsTicker) => newsTicker.leadArticleTicker
+    );
+    // console.log(lead);
+
+    setLeadNewsTicker(lead.leadArticleTicker);
+  };
 
   const getArticle = () => {
     if (!data?.articles) return;
@@ -41,7 +36,6 @@ export default function HomePage() {
   };
 
   useEffect(() => {
-    // getData();
     getData().then((res) => setData(res));
   }, []);
 
@@ -49,6 +43,7 @@ export default function HomePage() {
     getArticle();
     setDataShows(data?.shows);
     setDataAuthors(data?.authors);
+    getLeadNewsTicker();
   }, [data]);
 
   return (
@@ -92,7 +87,7 @@ export default function HomePage() {
           />
         </svg>
       </div>
-      <NewsTicker />
+      <NewsTicker newsTicker={leadNewsTicker} />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
       <PodcastsSection data={dataShows} />

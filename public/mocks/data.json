@@ -173,5 +173,27 @@
       { "id": 9, "title": "Changelog", "to": "/changelog" }
     ],
     "copyright": "© Designed by Pawel Gola. Developed by Aman Singh Bhogal. All content belongs to their respective copyright holders."
-  }
+  },
+  "newsTickers": [
+    {
+      "leadArticleTicker": {
+        "title": "NEWS TICKER",
+        "adds": "+++",
+        "news": [
+          {
+            "id": 1,
+            "text": "Christopher Vaccaro reports on the latest street art festival"
+          },
+          {
+            "id": 2,
+            "text": "A look back at the events which defined Berlin's cultural landscape"
+          },
+          {
+            "id": 3,
+            "text": "Episode 5 of Fyrre Magazine's podcast series is out now"
+          }
+        ]
+      }
+    }
+  ]
 }

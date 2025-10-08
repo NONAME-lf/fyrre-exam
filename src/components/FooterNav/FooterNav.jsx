@@ -2,8 +2,6 @@ import HoverLink from "../HoverLink/HoverLink";
 import "./style.scss";
 
 export default function FooterNav(props) {
-  console.log(props);
-
   return (
     <nav className="footer-nav">
       <ul>
