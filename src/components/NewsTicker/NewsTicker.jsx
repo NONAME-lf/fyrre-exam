@@ -3,20 +3,36 @@ import "./style.scss";
 
 export default function NewsTicker(props) {
   const newsAdds = props?.newsTicker?.adds;
-  // console.log(props);
-  const ticker = document.querySelector(".news-list");
-  console.log([ticker]);
+  const className = props?.className;
 
-  function moveTicker() {
+  // Function to move the ticker
+  async function moveTicker() {
     if (!props?.newsTicker) return;
-    const ticker = document.querySelector(".news-list");
-    const title = document.querySelector(".title");
-    const titleWidth = title.offsetWidth;
-    const tickerWidth = ticker.offsetWidth;
+    const ticker = document.querySelector(`${className} .news-list`);
+    const title = document.querySelector(`${className} .title`);
+
+    let titleWidth = title.offsetWidth;
+    let tickerWidth = ticker.offsetWidth;
+
+    if (props?.newsTicker?.title && !props.newsTicker?.news) {
+      console.log([props, ticker]);
+
+      if (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
+        let i = 0;
+        while (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
+          const li = document.createElement("li");
+          li.innerHTML = title.outerHTML;
+          ticker.appendChild(li);
+          tickerWidth = ticker.offsetWidth;
+          i++;
+        }
+      }
+    }
 
     if (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
       let i = 0;
       while (tickerWidth < ticker.parentElement.offsetWidth - titleWidth) {
+        if (i >= ticker.children.length) i = 0;
         const itemClone = ticker.children[i].cloneNode(true);
         ticker.appendChild(itemClone);
         i++;
@@ -81,14 +97,15 @@ export default function NewsTicker(props) {
         </h4>
       )}
       <ul className="news-list">
-        {props.newsTicker?.news.map((item) => {
-          return (
-            <li key={item.id}>
-              <span className="newsTitle">{item.text}</span>{" "}
-              {newsAdds && <span className="newsAdds">{newsAdds}</span>}
-            </li>
-          );
-        })}
+        {props.newsTicker?.news &&
+          props.newsTicker?.news.map((item) => {
+            return (
+              <li key={item.id}>
+                <span className="newsTitle">{item.text}</span>{" "}
+                {newsAdds && <span className="newsAdds">{newsAdds}</span>}
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

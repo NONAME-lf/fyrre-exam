@@ -194,6 +194,12 @@
           }
         ]
       }
+    },
+    {
+      "footerTicker": {
+        "title": "NEWSLETTER",
+        "adds": "+++"
+      }
     }
   ]
 }

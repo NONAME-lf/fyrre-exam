@@ -87,7 +87,10 @@ export default function HomePage() {
           />
         </svg>
       </div>
-      <NewsTicker newsTicker={leadNewsTicker} />
+      <NewsTicker
+        newsTicker={leadNewsTicker}
+        className=".page-wrapper > .container"
+      />
       <LeadArticle lead={leadArticle} />
       <ArticlesSection articles={articles} />
       <PodcastsSection data={dataShows} />

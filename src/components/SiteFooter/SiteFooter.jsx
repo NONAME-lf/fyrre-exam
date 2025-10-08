@@ -10,14 +10,28 @@ import SocList from "../SocList/SocList";
 
 export default function SiteFooter() {
   const [footerData, setFooterData] = useState([]);
+  const [newsTickerData, setNewsTickerData] = useState(null);
+  const [footerNewsTicker, setFooterNewsTicker] = useState(null);
 
   useEffect(() => {
     getData().then((res) => setFooterData(res.footerData));
+    getData().then((res) => setNewsTickerData(res.newsTickers));
   }, []);
+
+  useEffect(() => {
+    if (!newsTickerData) return;
+    const tmp_newsTickers = newsTickerData;
+
+    const footer = tmp_newsTickers.find(
+      (newsTicker) => newsTicker.footerTicker
+    );
+
+    setFooterNewsTicker(footer.footerTicker);
+  }, [newsTickerData]);
 
   return (
     <footer>
-      <NewsTicker />
+      <NewsTicker newsTicker={footerNewsTicker} className="footer" />
       <div className="container">
         <SiteForm form={footerData.form} />
         <div className="nav-div">
