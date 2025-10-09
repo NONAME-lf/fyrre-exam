@@ -18,7 +18,12 @@ export default function ArticleSection(props) {
         </ul>
         <ArticleSidebar />
       </div>
-      <HoverLink to="/magazine" highlight="All" text={" Articles"} icon="" />
+      <HoverLink
+        to="/magazine"
+        highlight="All&nbsp;"
+        text={"Articles"}
+        icon=""
+      />
     </section>
   );
 }
