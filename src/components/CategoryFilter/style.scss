@@ -1,0 +1,35 @@
+.categories-filter {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        display: inline-block;
+        height: 100%;
+    }
+
+    ul,
+    li,
+    button {
+        line-height: 0;
+    }
+
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        max-height: 32px;
+
+    }
+
+    li {
+        display: inline-block;
+        height: 100%;
+    }
+}

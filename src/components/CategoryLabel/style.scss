@@ -9,14 +9,17 @@
     text-align: center;
     max-width: max-content;
     width: 100%;
+    height: max-content;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: inline-block;
 }
 
 @media screen and (max-width: 600px) {
     .label {
         font-size: 1rem;
         border-radius: 15px;
+
         align-self: end;
     }
 }

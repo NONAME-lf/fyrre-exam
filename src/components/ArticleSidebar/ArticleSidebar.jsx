@@ -31,10 +31,6 @@ export default function ArticleSidebar() {
     );
   }, [sidebarData, articlesData]);
 
-  useEffect(() => {
-    console.log(mostPopularArticle);
-  }, [mostPopularArticle]);
-
   return (
     <div className="article-sidebar">
       <div className="magazine">
