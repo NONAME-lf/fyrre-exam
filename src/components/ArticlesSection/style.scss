@@ -8,9 +8,41 @@
 
     .section-content {
         margin-bottom: 96px;
-        display: grid;
-        grid-template-columns: 1fr 369px;
-        gap: 96px;
         position: relative;
+
+        &.sidebar {
+            display: grid;
+            grid-template-columns: 1fr 369px;
+            gap: 96px;
+        }
     }
+
+    &.vertical {
+        .articles {
+            grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
+            display: grid;
+            background-color: #000;
+            gap: 1px;
+            padding: 1px;
+        }
+
+        .article-item {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border: none;
+            background-color: #fff;
+        }
+    }
+}
+
+@media screen and (max-width: 597px) {
+    .articles-section {
+
+        &.vertical {
+            .articles {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+    }
+
 }

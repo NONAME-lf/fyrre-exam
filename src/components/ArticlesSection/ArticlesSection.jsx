@@ -5,18 +5,21 @@ import ArticleSidebar from "../ArticleSidebar/ArticleSidebar";
 
 export default function ArticleSection(props) {
   return (
-    <section className="articles-section">
-      <div className="section-content">
+    <section className={`articles-section ${props.orientation}`}>
+      <div className={`section-content ${props.sidebar ? "sidebar" : ""}`}>
         <ul className="articles">
           {props.articles.map((article) => {
             return (
               <li key={article.id} className="article-item">
-                <ArticleItem article={article} />
+                <ArticleItem
+                  article={article}
+                  orientation={props.orientation}
+                />
               </li>
             );
           })}
         </ul>
-        <ArticleSidebar />
+        {props.sidebar && <ArticleSidebar />}
       </div>
       <HoverLink
         to="/magazine"

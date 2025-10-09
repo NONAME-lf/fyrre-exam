@@ -15,6 +15,7 @@ export default function LeadArticle(props) {
   };
 
   const ifRwdWidth = () => {
+    if (!document.querySelector(".lead-article .content h3")) return;
     const width = document.body.clientWidth;
     setClientWidth(width);
     if (width <= 600 && imagePath) {
@@ -38,6 +39,9 @@ export default function LeadArticle(props) {
     window.addEventListener("resize", () => {
       ifRwdWidth();
     });
+    return () => {
+      window.removeEventListener("resize", ifRwdWidth);
+    };
   }, [imagePath]);
 
   return (
