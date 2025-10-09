@@ -46,30 +46,51 @@ export default function LeadArticle(props) {
 
   return (
     <>
-      <article className="lead-article">
-        <div className="content">
+      <article className={`lead-article ${props.detail ? "detail" : ""}`}>
+        <div className={"content"}>
           <h3>{props.lead?.title}</h3>
           <div className="text">
             <p>{props.lead?.text}</p>
-            <div className="info">
-              <ul>
-                <li>
-                  <span className="param">Text</span>
-                  {props.lead?.author}
-                </li>
-                <li>
-                  <span className="param">Date</span>
-                  {props.lead?.date}
-                </li>
-                <li>
-                  <span className="param">Duration</span>
-                  {props.lead?.timeToRead}
-                </li>
-              </ul>
-              <CategoryLabel category={props.lead?.category} />
-            </div>
+            {!props.detail && (
+              <div className="info">
+                <ul>
+                  <li>
+                    <span className="param">Text</span>
+                    {props.lead?.author}
+                  </li>
+                  <li>
+                    <span className="param">Date</span>
+                    {props.lead?.date}
+                  </li>
+                  <li>
+                    <span className="param">Duration</span>
+                    {props.lead?.timeToRead}
+                  </li>
+                </ul>
+                <CategoryLabel category={props.lead?.category} />
+              </div>
+            )}
           </div>
         </div>
+        {props.detail && (
+          <div className="info">
+            <ul>
+              <li>
+                <span className="param">Text</span>
+                {props.lead?.author}
+              </li>
+              <li>
+                <span className="param">Date</span>
+                {props.lead?.date}
+              </li>
+              <li>
+                <span className="param">Duration</span>
+                {props.lead?.timeToRead}
+              </li>
+            </ul>
+            <CategoryLabel category={props.lead?.category} />
+          </div>
+        )}
         {clientWidth > 600 && (
           <div className="img-wrap">
             <img

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import "./style.scss";
 export default function PodcastCard(props) {
-  //   console.log("EPISODE: ", props);
+  console.log("EPISODE: ", props);
   const duration = props.episode.duration_ms;
   const seconds = Math.floor((duration % 60000) / 1000);
   const minutes = Math.floor(duration / 60000);
@@ -13,7 +13,12 @@ export default function PodcastCard(props) {
         props.border || ""
       }`}
     >
-      <NavLink to={`/Podcast/${props.episode.id}`} className="link-hover">
+      <NavLink
+        to={props.episode.external_urls.spotify}
+        className="link-hover"
+        target="_blank"
+        rel="noreferrer nooopener nofollow"
+      >
         <div className="img-wrap">
           <div className="color-layer">
             <hgroup>
@@ -35,7 +40,10 @@ export default function PodcastCard(props) {
         </div>
       </NavLink>
       <div className="content">
-        <NavLink to={`/Podcast/${props.episode.id}`} className="link-hover">
+        <NavLink
+          to={props.episode.external_urls.spotify}
+          className="link-hover"
+        >
           <h3 className="title">{props.episode.name}</h3>
         </NavLink>
         <div className="info">

@@ -18,7 +18,7 @@ export default function AuthorCard(props) {
 
   return (
     <div className="author-card">
-      <NavLink to={`/authors/${props.author.id}`} className="link-hover">
+      <NavLink to={`/detail/authors/${props.author.id}`} className="link-hover">
         <div className="img-wrap">
           <img
             src={imagePath}
@@ -28,7 +28,10 @@ export default function AuthorCard(props) {
         </div>
       </NavLink>
       <div className="content">
-        <NavLink to={`/authors/${props.author.id}`} className="link-hover">
+        <NavLink
+          to={`/detail/authors/${props.author.id}`}
+          className="link-hover"
+        >
           <h3>{props.author.name}</h3>
         </NavLink>
         <div className="info">

@@ -21,7 +21,10 @@ export default function ArticleCard(props) {
   return (
     <>
       <article className={`article-card ${orientation}`}>
-        <NavLink to={`/magazine/${props.article.id}`} className="link-hover">
+        <NavLink
+          to={`/detail/magazine/${props.article.id}`}
+          className="link-hover"
+        >
           <div className="img-wrap">
             <img
               src={imagePath}
@@ -35,7 +38,7 @@ export default function ArticleCard(props) {
         <div className="content">
           <div className="text">
             <NavLink
-              to={`/magazine/${props.article.id}`}
+              to={`/detail/magazine/${props.article.id}`}
               className="link-hover"
             >
               <h3>{props.article.title}</h3>

@@ -1,0 +1,11 @@
+.detail-back-type {
+    display: flex;
+    justify-content: space-between;
+
+    .type {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 110%;
+        text-transform: uppercase;
+    }
+}

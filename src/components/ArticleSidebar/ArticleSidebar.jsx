@@ -22,12 +22,7 @@ export default function ArticleSidebar() {
   useEffect(() => {
     if (!sidebarData || !articlesData) return;
     setMostPopularArticle(
-      articlesData
-        .filter((article) => {
-          return article.popularity >= 8;
-        })
-        .sort((a, b) => b.popularity - a.popularity)
-        .slice(0, 3)
+      articlesData.sort((a, b) => b.popularity - a.popularity).slice(0, 3)
     );
   }, [sidebarData, articlesData]);
 
@@ -53,7 +48,10 @@ export default function ArticleSidebar() {
             <li key={item.id}>
               <div className="number">0{key + 1}</div>
               <div className="about">
-                <NavLink to={`/article/${item.id}`} className="title-link">
+                <NavLink
+                  to={`/detail/article/${item.id}`}
+                  className="title-link"
+                >
                   <span className="title">{item.title}</span>
                   <span className="author">
                     Text<span>{item.author}</span>

@@ -1,6 +1,16 @@
 .lead-article {
     min-height: 600px;
 
+    &.detail {
+        .content {
+            margin-bottom: 96px;
+        }
+
+        .info {
+            margin-bottom: 32px;
+        }
+    }
+
     .content {
         display: flex;
         margin-bottom: 48px;
@@ -17,54 +27,55 @@
         .text>P {
             margin-bottom: 64px;
         }
+    }
 
-        h3 {
-            // font-size: 6.5rem;
-            font-size: clamp(3rem, 8vw, 6.5rem);
-            font-weight: 600;
-            line-height: 110%;
-            text-transform: uppercase;
-            position: relative;
+    .content h3,
+    &.detail .info h3 {
+        // font-size: 6.5rem;
+        font-size: clamp(3rem, 8vw, 6.5rem);
+        font-weight: 600;
+        line-height: 110%;
+        text-transform: uppercase;
+        position: relative;
 
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                opacity: 0;
-                transition: all 0.3s ease-in-out;
-                filter: blur(4px) grayscale(0) drop-shadow(2px 4px 6px black);
-            }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            filter: blur(4px) grayscale(0) drop-shadow(2px 4px 6px black);
         }
+    }
 
-        li {
-            font-size: 0.875rem;
+    li {
+        font-size: 0.875rem;
+        display: inline-block;
 
-            &:not(&:last-child) {
-                margin-right: 24px;
-            }
+        &:not(&:last-child) {
+            margin-right: 24px;
         }
+    }
 
-        .param {
-            font-weight: 600;
-            line-height: 160%;
-            margin-right: 8px;
-        }
+    .param {
+        font-weight: 600;
+        line-height: 160%;
+        margin-right: 8px;
+    }
 
-        .info {
-            display: flex;
-            justify-content: space-between;
-            max-height: 32px;
-            gap: 16px;
-        }
+    .info {
+        display: flex;
+        justify-content: space-between;
+        max-height: 32px;
+        gap: 16px;
+    }
 
-        li {
-            display: inline-block;
-        }
-
+    li {
+        display: inline-block;
     }
 
     .img-wrap {
@@ -84,14 +95,16 @@
             width: 100%;
         }
 
-        li {
-            font-size: 1.25rem;
-        }
 
         .text>p {
             font-size: 1.5rem;
             line-height: 160%;
         }
+    }
+
+    .lead-article .content li,
+    .lead-article.detail .info li {
+        font-size: 1.25rem;
     }
 }
 
