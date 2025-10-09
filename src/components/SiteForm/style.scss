@@ -5,6 +5,19 @@
         flex-wrap: wrap;
         gap: 70px;
 
+        hgroup {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        hgroup p {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
         h2 {
             color: #F9F9F9;
             font-size: 5rem;

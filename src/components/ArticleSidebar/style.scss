@@ -1,0 +1,112 @@
+.article-sidebar {
+    max-width: 369px;
+    width: 100%;
+    height: max-content;
+    position: sticky;
+    top: 92px;
+
+    .magazine {
+        margin-bottom: 64px;
+    }
+
+    .info {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+
+        span {
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 120%;
+        }
+    }
+
+    .img-wrap {
+        max-width: unset;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .btn {
+        width: 28.73%;
+    }
+
+    .popular {
+        &>span {
+            color: #000;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            display: inline-block;
+        }
+
+        ul li {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 120%;
+            display: flex;
+            gap: 16px;
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #000;
+            }
+        }
+
+        .number {
+            width: 50px;
+            display: inline-block;
+            height: 100%;
+        }
+
+        .title {
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .author {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 160%;
+
+
+            &>span {
+                font-weight: 400;
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .newsletter {
+        display: flex;
+        padding: 30px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        background-color: #F8F8F8;
+
+        form {
+            h2 {
+                color: #000;
+                font-size: 2rem;
+                font-weight: 600;
+                line-height: 130%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

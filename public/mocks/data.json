@@ -2,17 +2,6 @@
   "articles": [
     {
       "id": 1,
-      "title": "Don't close your eyes",
-      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
-      "img": "dont-close-your-eyes-article.jpg",
-      "author": "Jakob Grønberg",
-      "date": "16 March 2022",
-      "timeToRead": "10 mins",
-      "category": "ART",
-      "lead": "true"
-    },
-    {
-      "id": 2,
       "title": "Hope dies last",
       "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
       "img": "hope-dies-last-article.jpg",
@@ -20,7 +9,20 @@
       "date": "16 March 2022",
       "timeToRead": "10 mins",
       "category": "ART",
-      "lead": "false"
+      "lead": "false",
+      "popularity": 5
+    },
+    {
+      "id": 2,
+      "title": "Don't close your eyes",
+      "text": "Eternal-return ascetic gains love passion zarathustra noble suicide intentions enlightenment grandeur deceptions mountains. Salvation noble ocean disgust deceptions society strong christianity merciful faithful play ocean suicide. Reason chaos endless revaluation mountains decieve hope. Snare gains joy noble reason law noble merciful grandeur dead. Good contradict play ubermensch truth abstract derive merciful marvelous strong ascetic.",
+      "img": "dont-close-your-eyes-article.jpg",
+      "author": "Jakob Grønberg",
+      "date": "16 March 2022",
+      "timeToRead": "10 mins",
+      "category": "ART",
+      "lead": "true",
+      "popularity": 8
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
       "date": "16 March 2022",
       "timeToRead": "10 mins",
       "category": "SCULPTURES",
-      "lead": "false"
+      "lead": "false",
+      "popularity": 5
     },
     {
       "id": 4,
@@ -42,7 +45,8 @@
       "date": "16 March 2022",
       "timeToRead": "10 mins",
       "category": "ART",
-      "lead": "false"
+      "lead": "false",
+      "popularity": 5
     },
     {
       "id": 5,
@@ -53,7 +57,8 @@
       "date": "16 March 2022",
       "timeToRead": "10 mins",
       "category": "ART",
-      "lead": "false"
+      "lead": "false",
+      "popularity": 5
     },
     {
       "id": 6,
@@ -64,7 +69,8 @@
       "date": "16 March 2022",
       "timeToRead": "10 mins",
       "category": "STREET ART",
-      "lead": "false"
+      "lead": "false",
+      "popularity": 9
     },
     {
       "id": 7,
@@ -75,9 +81,53 @@
       "date": "16 March 2022",
       "timeToRead": "10 mins",
       "category": "STREET ART",
-      "lead": "false"
+      "lead": "false",
+      "popularity": 5
     }
   ],
+  "sidebar": {
+    "featuredMagazine": {
+      "id": "1",
+      "date": "03/2022",
+      "img": "featured-magazine.jpg"
+    },
+    "form": {
+      "hgroup": {
+        "upper": "NEWSLETTER",
+        "title": "Design News to your inbox"
+      },
+      "labels": [
+        {
+          "id": "userName",
+          "autocomplete": "name",
+          "placeholder": "Name",
+          "type": "text",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 50,
+          "regex": "^[a-zA-Zà-žÀ-Ž' -]+$",
+          "className": "name-input"
+        },
+        {
+          "id": "userEmail",
+          "autocomplete": "email",
+          "placeholder": "Email",
+          "type": "email",
+          "required": true,
+          "minLength": 5,
+          "maxLength": 100,
+          "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+          "className": "email-input"
+        },
+        {
+          "id": "submit-button",
+          "type": "submit",
+          "text": "Sign up",
+          "className": "btn"
+        }
+      ]
+    }
+  },
   "authors": [
     {
       "id": "1",

@@ -1,5 +1,5 @@
 import "./style.scss";
-import SiteButton from "../SiteButton/SiteButton";
+import SiteButton from "../FormButton/FormButton";
 import InputLabel from "../InputLabel/InputLabel";
 import { useEffect, useState } from "react";
 
@@ -21,7 +21,14 @@ export default function SiteForm({ form }) {
 
   return (
     <form method="post">
-      <h2>{form?.title}</h2>
+      {form?.hgroup && (
+        <hgroup>
+          {form?.hgroup?.upper && <p>{form?.hgroup?.upper}</p>}
+          <h2>{form?.hgroup?.title}</h2>
+          {form?.hgroup?.lower && <p>{form?.hgroup?.lower}</p>}
+        </hgroup>
+      )}
+      {!form?.hgroup && <h2>{form?.title}</h2>}
       <div className="labels">
         {formLabels.map((label, index) =>
           label.type !== "submit" ? (

@@ -1,9 +1,18 @@
-.article-item:not(:last-child) {
-    padding-bottom: 48px;
-    margin-bottom: 48px;
-    border-bottom: 1px solid #000;
-}
+.articles-section {
+    .article-item:not(:last-child) {
+        padding-bottom: 48px;
+        margin-bottom: 48px;
+        border-bottom: 1px solid #000;
+    }
 
-.articles {
-    margin-bottom: 96px;
+    .articles {
+        margin-bottom: 96px;
+    }
+
+    .section-content {
+        display: grid;
+        grid-template-columns: 1fr 369px;
+        gap: 96px;
+        position: relative;
+    }
 }

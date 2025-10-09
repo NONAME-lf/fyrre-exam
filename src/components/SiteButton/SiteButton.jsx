@@ -1,10 +1,13 @@
+import { NavLink } from "react-router";
 import "./style.scss";
 
-export default function SiteButton(props) {
+export default function FormButton(props) {
   return (
-    <button id="submit-button" type="submit" className="btn">
-      {/* <!-- use span here instead of div, because div elements isn't allowed inside of button --> */}
+    <NavLink
+      to={props.to}
+      className={`btn ${props.className ? props.className : ""}`}
+    >
       {props.text}
-    </button>
+    </NavLink>
   );
 }
