@@ -39,6 +39,7 @@ export default function MagazinePage() {
         articles={filteredArticles || articlesData || []}
         sidebar={false}
         orientation="vertical"
+        nolink
       />
     </>
   );

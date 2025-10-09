@@ -4,6 +4,7 @@ import DetailBackType from "../components/DetailBackType/DetailBackType";
 import { getData } from "../helpers";
 import LeadArticle from "../components/LeadArticle/LeadArticle";
 import DetailContent from "../components/DetailContent/DetailContent";
+import LatestSection from "../components/LatestSection/LatestSection";
 
 export default function DetailPage() {
   const params = useParams();
@@ -34,6 +35,7 @@ export default function DetailPage() {
         <LeadArticle lead={itemData} detail={true} />
       )}
       <DetailContent item={itemData} />
+      <LatestSection type={params.type} />
     </>
   );
 }

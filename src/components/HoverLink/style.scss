@@ -2,13 +2,25 @@
 
 .hover-link {
 
+    &.uppercase {
+        text-transform: uppercase;
+    }
+
+    &.bold {
+        font-weight: 600;
+    }
+
     .icon {
         font-family: 'icomoon';
         position: relative;
-        top: 2px;
+        font-size: 1.5rem;
+        top: 3px;
         left: 5px;
         color: #000;
         transition: all .3s;
+        max-width: 24px;
+        max-height: 24px;
+        display: inline-block;
     }
 
     .hover-span {
@@ -31,6 +43,7 @@
         &::before {
             left: -5%;
             z-index: -1;
+            max-width: 44px;
         }
     }
 }
@@ -44,6 +57,7 @@ a.hover-link::before,
     height: 100%;
     width: 0;
     top: 0;
+    left: -1px;
     background-color: #000;
     transform: translateX(-10%);
 }

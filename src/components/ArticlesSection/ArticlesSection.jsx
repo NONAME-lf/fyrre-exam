@@ -53,12 +53,16 @@ export default function ArticleSection(props) {
         </ul>
         {props.sidebar && <ArticleSidebar />}
       </div>
-      <HoverLink
-        to="/magazine"
-        highlight="All&nbsp;"
-        text={"Articles"}
-        icon=""
-      />
+      {!props.nolink && (
+        <HoverLink
+          to="/magazine"
+          highlight="All&nbsp;"
+          text={"Articles"}
+          icon=""
+          uppercase
+          bold
+        />
+      )}
     </section>
   );
 }
