@@ -34,6 +34,7 @@ export default function LeadArticle(props) {
   }, [props]);
 
   useEffect(() => {
+    // Call initially even without resize event
     ifRwdWidth();
 
     window.addEventListener("resize", () => {

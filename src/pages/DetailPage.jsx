@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import DetailBackType from "../components/DetailBackType/DetailBackType";
 import { getData } from "../helpers";
 import LeadArticle from "../components/LeadArticle/LeadArticle";
+import DetailContent from "../components/DetailContent/DetailContent";
 
 export default function DetailPage() {
   const params = useParams();
@@ -22,12 +23,17 @@ export default function DetailPage() {
     });
   }, []);
 
+  //   useEffect(() => {
+  //     console.log(itemData);
+  //   }, [itemData]);
+
   return (
     <>
       <DetailBackType type={params.type} />
       {params.type === "magazine" && itemData && (
         <LeadArticle lead={itemData} detail={true} />
       )}
+      <DetailContent item={itemData} />
     </>
   );
 }

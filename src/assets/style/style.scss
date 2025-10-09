@@ -139,3 +139,12 @@ body {
 .categories-filter {
     margin-bottom: 67px;
 }
+
+// <== DETAIL CONTENT PAGE ==>
+.detail-back-type {
+    margin-bottom: 96px;
+
+    &+.lead-article.detail {
+        margin-bottom: 96px;
+    }
+}

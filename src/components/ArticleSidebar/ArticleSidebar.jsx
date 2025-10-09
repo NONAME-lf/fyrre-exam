@@ -27,7 +27,7 @@ export default function ArticleSidebar() {
   }, [sidebarData, articlesData]);
 
   return (
-    <div className="article-sidebar">
+    <aside className="article-sidebar">
       <div className="magazine">
         <div className="info">
           <span>PrintMagazine</span>
@@ -65,6 +65,6 @@ export default function ArticleSidebar() {
       <div className="newsletter">
         <SiteForm form={sidebarData?.form} />
       </div>
-    </div>
+    </aside>
   );
 }

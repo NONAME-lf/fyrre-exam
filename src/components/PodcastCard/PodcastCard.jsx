@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import "./style.scss";
 export default function PodcastCard(props) {
-  console.log("EPISODE: ", props);
+  // console.log("EPISODE: ", props);
   const duration = props.episode.duration_ms;
   const seconds = Math.floor((duration % 60000) / 1000);
   const minutes = Math.floor(duration / 60000);

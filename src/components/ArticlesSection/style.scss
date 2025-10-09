@@ -36,12 +36,26 @@
     }
 }
 
-@media screen and (max-width: 597px) {
+@media screen and (max-width: 1232px) {
     .articles-section {
+        .section-content {
+            &.sidebar {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+    }
+}
 
-        &.vertical {
-            .articles {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+@media screen and (max-width: 896px) {
+    .articles-section {
+        .section-content {
+            &.sidebar {
+                grid-template-columns: 1fr;
+
+                .sidebar {
+                    max-width: unset;
+                    justify-self: center;
+                }
             }
         }
     }
