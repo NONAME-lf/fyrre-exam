@@ -14,19 +14,20 @@ export default function DetailContentSideBar(props) {
         </div>
         <h3>{props.authorData?.name}</h3>
       </div>
-      <div className="article-info">
-        <ul>
-          <li>
-            <span className="param">Date</span> {props.articleData?.date}
-          </li>
-          <li>
-            <span className="param">Read</span> {props.articleData?.readTime}
-          </li>
-          <li>
-            <span className="param">Share</span> <SocList />
-          </li>
-        </ul>
-      </div>
+      <ul className="article-info">
+        <li>
+          <span className="param">Date</span>
+          {props.articleData?.date}
+        </li>
+        <li>
+          <span className="param">Read</span>
+          {props.articleData?.timeToRead}
+        </li>
+        <li>
+          <span className="param">Share</span>
+          <SocList />
+        </li>
+      </ul>
     </aside>
   );
 }

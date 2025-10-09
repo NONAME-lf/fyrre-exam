@@ -6,18 +6,22 @@ import { use, useEffect } from "react";
 
 export default function ArticleSection(props) {
   const isRwdWidth = () => {
-    if (!document.querySelector(".article-card")) return;
+    if (!document.querySelector(".article-section .article-card")) return;
     const width = document.body.clientWidth;
     if (width <= 1232) {
-      document.querySelectorAll(".article-card").forEach((card) => {
-        card.classList.remove("horizontal");
-        card.classList.add("vertical");
-      });
+      document
+        .querySelectorAll(".article-section .article-card")
+        .forEach((card) => {
+          card.classList.remove("horizontal");
+          card.classList.add("vertical");
+        });
     } else {
-      document.querySelectorAll(".article-card").forEach((card) => {
-        card.classList.remove("vertical");
-        card.classList.add("horizontal");
-      });
+      document
+        .querySelectorAll(".article-section .article-card")
+        .forEach((card) => {
+          card.classList.remove("vertical");
+          card.classList.add("horizontal");
+        });
     }
   };
 

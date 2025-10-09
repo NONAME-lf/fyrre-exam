@@ -9,3 +9,11 @@
         text-transform: uppercase;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .detail-back-type {
+        .type {
+            font-size: 1.5rem;
+        }
+    }
+}
