@@ -19,11 +19,11 @@
 
     &.vertical {
         .articles {
-            grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
-            display: grid;
             background-color: #000;
             gap: 1px;
             padding: 1px;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .article-item {
@@ -31,6 +31,7 @@
             padding-bottom: 0;
             border: none;
             background-color: #fff;
+            flex: 1 1 calc(409px - 2px);
         }
     }
 }
