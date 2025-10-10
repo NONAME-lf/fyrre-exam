@@ -132,6 +132,30 @@ a.hover-link:active {
     }
 }
 
+a.hover-link.active {
+    .hover-span {
+        left: 0;
+        color: #fff;
+    }
+
+    .highlight {
+        color: #fff;
+    }
+
+    &::before {
+        width: 125%;
+    }
+
+    &::after {
+        width: 100%;
+    }
+
+    .icon {
+        color: #fff;
+        left: 5px;
+    }
+}
+
 // INVERTED
 a.hover-link.inverted {
 

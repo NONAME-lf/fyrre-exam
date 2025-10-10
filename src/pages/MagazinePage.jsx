@@ -30,7 +30,7 @@ export default function MagazinePage() {
 
   return (
     <>
-      <PageSlogan svgContent={sloganData?.svgContent} />
+      <PageSlogan svgContent={sloganData?.svgContent} className="dmb" />
       <CategoryFilter
         articles={articlesData || []}
         onchange={handleFilterChange}

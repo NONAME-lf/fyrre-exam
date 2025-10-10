@@ -65,7 +65,7 @@ export default function HomePage() {
         orientation="horizontal"
       />
       <PodcastsSection data={dataShows} />
-      <AuthorsSection data={dataAuthors} />
+      <AuthorsSection data={dataAuthors} sectionHeader />
     </>
   );
 }

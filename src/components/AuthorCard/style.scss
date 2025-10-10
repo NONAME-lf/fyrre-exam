@@ -22,9 +22,9 @@
     }
 
     .link-hover {
-        flex: 1 1 100px;
         width: max-content;
         display: flex;
+        // flex: 0 1 150px;
     }
 
     &:has(.link-hover:hover) .img-wrap {
@@ -38,11 +38,12 @@
 
     .content {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 32px;
         align-items: center;
-        justify-content: start;
-        flex: 1 1 300px;
+        flex: 1 0 250px;
     }
 
     h3 {
@@ -55,19 +56,28 @@
     }
 
     .info {
-        color: #000;
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 160%;
-        display: flex;
         gap: 32px;
+        display: flex;
+        flex-wrap: wrap;
         width: max-content;
+        align-items: center;
 
-        div {
+        &>div {
+            color: #000;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 160%;
             display: inline-block;
         }
 
-        span {
+        .hover-link {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .job span,
+        .city span {
             font-weight: 600;
             margin-right: 8px;
         }

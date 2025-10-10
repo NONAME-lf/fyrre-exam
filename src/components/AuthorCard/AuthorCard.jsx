@@ -2,6 +2,7 @@ import "./style.scss";
 import { useEffect, useState } from "react";
 import { getImagePath } from "../../helpers";
 import { NavLink } from "react-router";
+import HoverLink from "../HoverLink/HoverLink";
 export default function AuthorCard(props) {
   const [imagePath, setImagePath] = useState(null);
 
@@ -18,7 +19,7 @@ export default function AuthorCard(props) {
 
   return (
     <div className="author-card">
-      <NavLink to={`/detail/authors/${props.author.id}`} className="link-hover">
+      <NavLink to={`/detail/author/${props.author.id}`} className="link-hover">
         <div className="img-wrap">
           <img
             src={imagePath}
@@ -29,7 +30,7 @@ export default function AuthorCard(props) {
       </NavLink>
       <div className="content">
         <NavLink
-          to={`/detail/authors/${props.author.id}`}
+          to={`/detail/author/${props.author.id}`}
           className="link-hover"
         >
           <h3>{props.author.name}</h3>
@@ -43,6 +44,16 @@ export default function AuthorCard(props) {
             <span>City</span>
             {props.author.city}
           </div>
+          {props.hoverLink && (
+            <HoverLink
+              highlight={props.hoverLink.highlight}
+              text={props.hoverLink.text}
+              icon={props.hoverLink.icon}
+              uppercase={props.hoverLink.uppercase}
+              bold={props.hoverLink.bold}
+              to={`/detail/author/${props.author.id}`}
+            />
+          )}
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export default function LatestSection(props) {
         title={props.type}
         highlight="See&nbsp;"
         text="All"
-        type={props.type}
+        to={`/${props.type}`}
       />
       <ul className="latest-items">
         {typeData &&

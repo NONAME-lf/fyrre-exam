@@ -7,7 +7,7 @@ export default function SectionHeader(props) {
     <div className="section-header">
       <h2>{props.title}</h2>
       <HoverLink
-        to={`/${props.type}`}
+        to={props.to}
         highlight={props.highlight}
         text={props.text}
         icon=""

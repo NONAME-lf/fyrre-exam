@@ -102,7 +102,12 @@ export default function PodcastSection(props) {
 
   return (
     <section className="podcasts-section">
-      <SectionHeader title="Podcasts" highlight="All&nbsp;" text="Episodes" />
+      <SectionHeader
+        title="Podcasts"
+        highlight="All&nbsp;"
+        text="Episodes"
+        to="/podcast"
+      />
       <ul className="podcast-list">
         {episodes.map((episode) => {
           return (

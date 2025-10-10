@@ -24,10 +24,6 @@ export default function DetailPage() {
     });
   }, [params]);
 
-  //   useEffect(() => {
-  //     console.log(itemData);
-  //   }, [itemData]);
-
   return (
     <>
       <DetailBackType type={params.type} />

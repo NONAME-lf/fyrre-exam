@@ -87,6 +87,10 @@ body {
         height: 100%;
         width: 100%;
     }
+
+    &.dmb {
+        margin-bottom: 96px;
+    }
 }
 
 //  <== NEWS TICKER ==>
@@ -155,4 +159,44 @@ body {
 
 .latest-section {
     margin-bottom: 192px;
+}
+
+// <== AUTHORS PAGE ==>
+.author-page {
+
+    .author-list {
+        background-color: transparent;
+        gap: 0;
+        padding: 0;
+
+        li {
+            flex: 1 1 100%;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #000;
+            }
+
+            .author-card {
+                h3 {
+                    margin-bottom: 0;
+                }
+
+                .info {
+                    gap: 96px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .author-list li .author-card .info {
+            gap: 32px;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+        .author-list li .author-card .info {
+            gap: 24px;
+        }
+    }
 }

@@ -20,7 +20,7 @@ export default function SiteHeader() {
               <HoverLink to="/magazine" highlight="M" text="agazine" />
             </li>
             <li>
-              <HoverLink to="/authors" highlight="A" text="uthors" />
+              <HoverLink to="/author" highlight="A" text="uthors" />
             </li>
             <li>
               <HoverLink to="/podcast" highlight="P" text="odcast" />
