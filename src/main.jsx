@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage.jsx";
 import MagazinePage from "./pages/MagazinePage.jsx";
 import DetailPage from "./pages/DetailPage.jsx";
 import AuthorPage from "./pages/AuthorPage.jsx";
+import PodcastPage from "./pages/PodcastPage.jsx";
 import "./assets/style/style.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/" element={<HomePage />} />
           <Route path="/magazine" element={<MagazinePage />} />
           <Route path="/author" element={<AuthorPage />} />
+          <Route path="/podcast" element={<PodcastPage />} />
           <Route path="/detail/:type/:id" element={<DetailPage />} />
         </Route>
       </Routes>

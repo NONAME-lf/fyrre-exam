@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     // justify-content: space-between;
-    padding: 48px;
+    padding: 11.4627%;
     height: 100%;
 
     &>.link-hover {
@@ -29,7 +29,7 @@
             font-weight: 600;
             line-height: normal;
             text-transform: uppercase;
-            padding: 35.61px 22.53px 23.49px 33.58px;
+            padding: 11.03% 6.98% 7.278% 10.4%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -47,16 +47,16 @@
 
             hgroup {
                 h4 {
-                    font-size: 3.17969rem;
+                    font-size: clamp(2rem, 3vw, 3.17969rem);
                 }
 
                 p {
-                    font-size: 1.58981rem;
+                    font-size: clamp(1.25rem, 3vw, 1.58981rem);
                 }
             }
 
             .episode {
-                font-size: 1.58981rem;
+                font-size: clamp(1.25rem, 3vw, 1.58981rem);
             }
 
             .arrow {
@@ -91,7 +91,7 @@
         flex-direction: column;
 
         h3 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 600;
             line-height: 120%;
             margin-bottom: 48px;
@@ -115,5 +115,11 @@
 
     &:has(.link-hover:hover) img {
         filter: grayscale(0);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .podcast-card .content li {
+        font-size: 1.125rem;
     }
 }

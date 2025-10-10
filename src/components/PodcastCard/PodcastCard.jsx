@@ -9,7 +9,7 @@ export default function PodcastCard(props) {
 
   return (
     <div
-      className={`podcast-card ${props.orientation || "horizontal"} ${
+      className={`podcast-card ${props.orientation || ""} ${
         props.border || ""
       }`}
     >

@@ -14,12 +14,17 @@ export default function PodcastSection(props) {
   }, [accessToken]);
 
   useEffect(() => {
+    if (!props.quantity) return;
+    setQuantity(props.quantity);
+  }, [props]);
+
+  useEffect(() => {
     getSpotifyShows();
   }, [accessToken, props.data]);
 
   useEffect(() => {
     getEpisodes(quantity);
-  }, [shows]);
+  }, [shows, quantity]);
 
   const getSpotifyShows = async () => {
     if (!accessToken || !props.data) return;
@@ -102,12 +107,14 @@ export default function PodcastSection(props) {
 
   return (
     <section className="podcasts-section">
-      <SectionHeader
-        title="Podcasts"
-        highlight="All&nbsp;"
-        text="Episodes"
-        to="/podcast"
-      />
+      {props.sectionHeader && (
+        <SectionHeader
+          title="Podcasts"
+          highlight="All&nbsp;"
+          text="Episodes"
+          to="/podcast"
+        />
+      )}
       <ul className="podcast-list">
         {episodes.map((episode) => {
           return (
