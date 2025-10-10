@@ -4,7 +4,62 @@
     align-items: center;
     // justify-content: space-between;
     padding: 11.4627%;
-    height: 100%;
+    height: max-content;
+    position: relative;
+
+    &.horizontal {
+        flex-direction: row;
+        padding: 0;
+        gap: 64px;
+        // flex-wrap: wrap;
+
+        .ep-num {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 120%;
+        }
+
+        &>.link-hover {
+            flex: 0 1 240px;
+            width: 100%;
+            margin-bottom: 0;
+
+            .img-wrap {
+                max-height: 300px;
+                max-width: 300px;
+                aspect-ratio: 1 / 1;
+
+                .color-layer hgroup h4 {
+                    font-size: clamp(1.5rem, 2vw, 33.17969rem);
+                }
+            }
+        }
+
+        .content {
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 32px;
+            flex: 1 1 500px;
+
+            &>.link-hover {
+                flex: 0 1 450px;
+            }
+
+            h3 {
+                margin-bottom: 0;
+            }
+
+            .info {
+                flex: 0 1 300px;
+
+                &>ul {
+                    width: max-content;
+                    justify-self: end;
+                }
+            }
+        }
+    }
 
     &>.link-hover {
         margin-bottom: 32px;
@@ -119,7 +174,48 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .podcast-card .content li {
-        font-size: 1.125rem;
+    .podcast-card {
+        &.horizontal {
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            &>.link-hover {
+                flex: 0;
+
+                .img-wrap {
+                    justify-self: center;
+                    max-width: 400px;
+                    max-height: 400px;
+                }
+            }
+
+            .content {
+                justify-content: center;
+                flex-direction: column;
+                flex: 0;
+
+                &>.link-hover {
+                    flex: 0;
+                    text-align: center;
+                }
+
+                .info {
+                    flex: 0;
+
+                    >ul {
+                        flex: 0;
+                        justify-self: center;
+                    }
+                }
+            }
+
+            .ep-num {
+                font-size: 2.5rem;
+            }
+        }
+
+        .content li {
+            font-size: 1.125rem;
+        }
     }
 }
