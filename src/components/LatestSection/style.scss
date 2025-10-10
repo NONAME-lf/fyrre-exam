@@ -1,0 +1,14 @@
+.latest-section {
+    .latest-items {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #000;
+        gap: 1px;
+        padding: 1px;
+
+        li {
+            flex: 1 1 350px;
+            background-color: #fff;
+        }
+    }
+}

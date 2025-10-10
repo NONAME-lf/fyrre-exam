@@ -22,7 +22,7 @@ export default function DetailPage() {
       const item = dataList.find((data) => data.id === parseInt(params.id));
       setItemData(item || null);
     });
-  }, []);
+  }, [params]);
 
   //   useEffect(() => {
   //     console.log(itemData);
