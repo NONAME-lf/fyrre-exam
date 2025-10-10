@@ -116,13 +116,15 @@ export default function PodcastSection(props) {
         />
       )}
       <ul className="podcast-list">
-        {episodes.map((episode) => {
+        {episodes.map((episode, key) => {
           return (
             <li key={episode.id}>
               <PodcastCard
+                epNum={episodes.length - key}
                 episode={episode}
                 episodeNum={episodes.length - episodes.indexOf(episode)}
                 border={"grid-border"}
+                orientation="horizontal"
               />
             </li>
           );

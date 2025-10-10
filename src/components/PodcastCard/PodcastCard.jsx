@@ -13,6 +13,7 @@ export default function PodcastCard(props) {
         props.border || ""
       }`}
     >
+      <div className="ep-num">0{props.epNum}</div>
       <NavLink
         to={props.episode.external_urls.spotify}
         className="link-hover"
