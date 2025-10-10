@@ -6,6 +6,7 @@ export default function PodcastCard(props) {
   const seconds = Math.floor((duration % 60000) / 1000);
   const minutes = Math.floor(duration / 60000);
   const hours = Math.floor(minutes / 60);
+  console.log("PROPS: ", props);
 
   return (
     <div
@@ -13,9 +14,10 @@ export default function PodcastCard(props) {
         props.border || ""
       }`}
     >
-      <div className="ep-num">0{props.epNum}</div>
+      {props.epNum && <div className="ep-num">0{props.epNum}</div>}
       <NavLink
-        to={props.episode.external_urls.spotify}
+        // to={props.episode.external_urls.spotify}
+        to={`/detail/podcast/${props.episode.id}`}
         className="link-hover"
         target="_blank"
         rel="noreferrer nooopener nofollow"
@@ -42,7 +44,8 @@ export default function PodcastCard(props) {
       </NavLink>
       <div className="content">
         <NavLink
-          to={props.episode.external_urls.spotify}
+          // to={props.episode.external_urls.spotify}
+          to={`/detailt/podcast/${props.episode.id}`}
           className="link-hover"
         >
           <h3 className="title">{props.episode.name}</h3>

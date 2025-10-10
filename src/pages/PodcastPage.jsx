@@ -19,7 +19,13 @@ export default function PodcastPage() {
   return (
     <>
       <PageSlogan svgContent={sloganData?.svgContent} className="dmb" />
-      <PodcastSection data={showData} quantity={5} noSectionHeader />
+      <PodcastSection
+        data={showData}
+        quantity={5}
+        noSectionHeader
+        orientation="horizontal"
+        epNum
+      />
     </>
   );
 }

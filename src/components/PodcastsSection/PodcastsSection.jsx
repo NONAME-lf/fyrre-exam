@@ -120,11 +120,11 @@ export default function PodcastSection(props) {
           return (
             <li key={episode.id}>
               <PodcastCard
-                epNum={episodes.length - key}
+                epNum={props.epNum && episodes.length - key}
                 episode={episode}
                 episodeNum={episodes.length - episodes.indexOf(episode)}
                 border={"grid-border"}
-                orientation="horizontal"
+                orientation={props.orientation || ""}
               />
             </li>
           );
