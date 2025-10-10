@@ -1,0 +1,31 @@
+.listen-list {
+    display: flex;
+    gap: 16px;
+
+    li svg {
+        height: 24px;
+        width: 24px;
+        fill: #000;
+        transform: scale(1);
+    }
+
+    .inverted svg {
+        fill: #fff;
+    }
+
+    a {
+        opacity: 1;
+        transition: all 0.2s ease;
+    }
+
+    a:hover {
+        svg {
+            transition: all 0.2s ease;
+            transform: scale(1.2);
+        }
+    }
+
+    a:active {
+        opacity: 0.6;
+    }
+}

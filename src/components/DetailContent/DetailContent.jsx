@@ -29,6 +29,7 @@ export default function DetailContent(props) {
           <DetailContentSideBar
             authorData={authorData}
             articleData={props.item}
+            type={props.type}
           />
           <ul className="detail-content-text">
             {props.item?.content?.mainText &&
@@ -104,6 +105,35 @@ export default function DetailContent(props) {
                   );
                 }
               })}
+          </ul>
+        </>
+      )}
+      {props.type === "podcast" && (
+        <>
+          <DetailContentSideBar
+            podcastData={props.item}
+            type={props.type}
+            episodeNum={props.itemData}
+          />
+          <ul className="detail-content-text">
+            {props.item?.name && (
+              <li className="podcast-info">
+                {props.item?.epNum && (
+                  <span className="episode-number">
+                    Episode {props.item.epNum}
+                  </span>
+                )}
+                <h2>{props.item.name}</h2>
+              </li>
+            )}
+            {props.item?.description && (
+              <li
+                className="description"
+                dangerouslySetInnerHTML={{
+                  __html: props.item.html_description,
+                }}
+              ></li>
+            )}
           </ul>
         </>
       )}

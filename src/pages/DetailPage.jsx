@@ -12,13 +12,16 @@ export default function DetailPage() {
   const [itemData, setItemData] = useState(null);
 
   const getEpisode = (id, shows) => {
+    const cashedEpisode = localStorage.getItem(`spotify_episode_${id}`);
+    if (cashedEpisode) return JSON.parse(cashedEpisode);
     for (const show of shows) {
       const cachedShow = localStorage.getItem(`spotify_show_${show.id}`);
       const showData = cachedShow ? JSON.parse(cachedShow) : show;
       if (!showData.episodes) continue;
-      const episode = showData.episodes.items.find(
-        (episode) => episode.id === id
-      );
+      const episode = showData.episodes.items.find((episode, index) => {
+        episode.epNum = showData.episodes.items.length - index;
+        return episode.id === id;
+      });
       if (episode) return episode;
     }
     toast.error("Episode not found", { theme: "dark" });

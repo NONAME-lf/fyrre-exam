@@ -115,7 +115,7 @@ export default function PodcastSection(props) {
     const episodeList = [];
     shows.forEach((show) => {
       if (!show.episodes) return;
-      show.episodes.items.forEach((episode) => {
+      show.episodes.items.forEach((episode, key) => {
         if (episodeList.length < quantity) {
           const cachedEpisode = localStorage.getItem(
             `spotify_episode_${episode.id}`
@@ -124,6 +124,7 @@ export default function PodcastSection(props) {
             episodeList.push(JSON.parse(cachedEpisode));
             return;
           }
+          episode.epNum = quantity - key;
           localStorage.setItem(
             `spotify_episode_${episode.id}`,
             JSON.stringify(episode)
