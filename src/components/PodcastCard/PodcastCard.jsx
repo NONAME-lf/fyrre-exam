@@ -6,7 +6,6 @@ export default function PodcastCard(props) {
   const seconds = Math.floor((duration % 60000) / 1000);
   const minutes = Math.floor(duration / 60000);
   const hours = Math.floor(minutes / 60);
-  console.log("PROPS: ", props);
 
   return (
     <div

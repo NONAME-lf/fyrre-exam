@@ -28,12 +28,19 @@ export default function PodcastSection(props) {
 
   const getSpotifyShows = async () => {
     if (!accessToken || !props.data) return;
-    const tmp_shows = await requestSpotifyData();
-    setShows(tmp_shows);
+    requestSpotifyData().then((res) => {
+      if (res) setShows(res);
+    });
   };
 
   const requestSpotifyToken = async () => {
-    if (accessToken) return;
+    const cashedToken = sessionStorage.getItem("spotify_token");
+    const tokenExpire = sessionStorage.getItem("spotify_token_expire");
+    if (cashedToken && tokenExpire && tokenExpire < Date.now()) {
+      setAccessToken(cashedToken);
+      return;
+    }
+    // if (accessToken) return;
     try {
       const response = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
@@ -50,9 +57,12 @@ export default function PodcastSection(props) {
         body: new URLSearchParams({ grant_type: "client_credentials" }),
       });
       if (response.ok) {
-        const tocken_data = await response.json();
-        setAccessToken(tocken_data.access_token);
-        // console.log("TOKEN: ", tocken_data);
+        const tokenData = await response.json();
+        const expire = Date.now() + tokenData.expires_in * 1000;
+        sessionStorage.setItem("spotify_token", tokenData.access_token);
+        sessionStorage.setItem("spotify_token_expire", expire);
+        setAccessToken(tokenData.access_token);
+        // console.log("TOKEN: ", tokenData);
       }
     } catch (error) {
       console.error(error);
@@ -63,9 +73,15 @@ export default function PodcastSection(props) {
   const requestSpotifyData = async () => {
     if (!accessToken || !props.data) return;
     try {
-      const showsIds = props.data;
       const showItems = [];
-      for (const show of showsIds) {
+
+      for (const show of props.data) {
+        const cachedShow = localStorage.getItem(`spotify_show_${show.id}`);
+        if (cachedShow) {
+          showItems.push(JSON.parse(cachedShow));
+          continue;
+        }
+
         const response = await fetch(
           `https://api.spotify.com/v1/shows/${show.id}`,
           {
@@ -75,6 +91,10 @@ export default function PodcastSection(props) {
         );
         if (response.ok) {
           const tmp_data = await response.json();
+          localStorage.setItem(
+            `spotify_show_${show.id}`,
+            JSON.stringify(tmp_data)
+          );
           showItems.push(tmp_data);
         } else {
           throw new Error(
@@ -96,8 +116,20 @@ export default function PodcastSection(props) {
     shows.forEach((show) => {
       if (!show.episodes) return;
       show.episodes.items.forEach((episode) => {
-        if (episodeList.length < quantity) episodeList.push(episode);
-        else {
+        if (episodeList.length < quantity) {
+          const cachedEpisode = localStorage.getItem(
+            `spotify_episode_${episode.id}`
+          );
+          if (cachedEpisode) {
+            episodeList.push(JSON.parse(cachedEpisode));
+            return;
+          }
+          localStorage.setItem(
+            `spotify_episode_${episode.id}`,
+            JSON.stringify(episode)
+          );
+          episodeList.push(episode);
+        } else {
           setEpisodes(episodeList);
           return;
         }

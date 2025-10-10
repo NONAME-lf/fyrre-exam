@@ -5,10 +5,24 @@ import { getData } from "../helpers";
 import LeadArticle from "../components/LeadArticle/LeadArticle";
 import DetailContent from "../components/DetailContent/DetailContent";
 import LatestSection from "../components/LatestSection/LatestSection";
+import { toast } from "react-toastify";
 
 export default function DetailPage() {
   const params = useParams();
   const [itemData, setItemData] = useState(null);
+
+  const getEpisode = (id, shows) => {
+    for (const show of shows) {
+      const cachedShow = localStorage.getItem(`spotify_show_${show.id}`);
+      const showData = cachedShow ? JSON.parse(cachedShow) : show;
+      if (!showData.episodes) continue;
+      const episode = showData.episodes.items.find(
+        (episode) => episode.id === id
+      );
+      if (episode) return episode;
+    }
+    toast.error("Episode not found", { theme: "dark" });
+  };
 
   useEffect(() => {
     getData().then((res) => {
@@ -17,9 +31,14 @@ export default function DetailPage() {
           ? res?.articles
           : params.type === "author"
           ? res?.authors
+          : params.type === "podcast"
+          ? res?.shows
           : [];
 
-      const item = dataList.find((data) => data.id === parseInt(params.id));
+      const item =
+        params.type !== "podcast"
+          ? dataList.find((data) => data.id === parseInt(params.id))
+          : getEpisode(params.id, res?.shows);
       setItemData(item || null);
     });
   }, [params]);

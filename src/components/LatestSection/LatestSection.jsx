@@ -12,7 +12,7 @@ export default function LatestSection(props) {
     getData().then((res) => {
       const dataList = res?.articles;
       setTypeData(dataList || null);
-      console.log(dataList);
+      // console.log(dataList);
     });
   }, [props]);
 
