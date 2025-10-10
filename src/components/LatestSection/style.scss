@@ -10,5 +10,27 @@
             flex: 1 1 350px;
             background-color: #fff;
         }
+
+        &:has(.horizontal) {
+            .latest-item {
+                flex: 1 1 600px;
+                padding: 1.9077%;
+
+                .article-card {
+                    .info ul {
+                        width: 100%;
+                    }
+
+                    .content {
+                        gap: 16px;
+                        justify-content: center;
+
+                        h3 {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

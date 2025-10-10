@@ -57,11 +57,12 @@
         margin-bottom: 24px;
 
         h2 {
-            font-size: 6.5rem;
+            font-size: clamp(3rem, 8vw, 6.5rem);
             font-weight: 600;
             line-height: 110%;
             text-transform: uppercase;
             margin-bottom: 32px;
+            overflow-wrap: anywhere;
         }
 
         p {

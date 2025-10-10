@@ -50,7 +50,13 @@ export default function LatestSection(props) {
             .map((article) => {
               return (
                 <li key={article.id} className="latest-item">
-                  <ArticleCard article={article} orientation="vertical" />
+                  <ArticleCard
+                    article={article}
+                    orientation="horizontal"
+                    noAuthor
+                    noText
+                    noCategory
+                  />
                 </li>
               );
             })}

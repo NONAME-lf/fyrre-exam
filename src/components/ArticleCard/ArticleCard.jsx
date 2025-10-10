@@ -43,14 +43,16 @@ export default function ArticleCard(props) {
             >
               <h3>{props.article.title}</h3>
             </NavLink>
-            <p>{props.article.text}</p>
+            {!props.noText && <p>{props.article.text}</p>}
           </div>
           <div className="info">
             <ul>
-              <li>
-                <span className="param">Text</span>
-                {props.article.author}
-              </li>
+              {!props.noAuthor && (
+                <li>
+                  <span className="param">Text</span>
+                  {props.article.author}
+                </li>
+              )}
               <li>
                 <span className="param">Date</span>
                 {props.article.date}
@@ -60,7 +62,9 @@ export default function ArticleCard(props) {
                 {props.article.timeToRead}
               </li>
             </ul>
-            <span className="label">{props.article.category}</span>
+            {!props.noCategory && (
+              <span className="label">{props.article.category}</span>
+            )}
           </div>
         </div>
       </article>
