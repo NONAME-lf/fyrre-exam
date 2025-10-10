@@ -30,8 +30,8 @@ export default function DetailPage() {
       {params.type === "magazine" && itemData && (
         <LeadArticle lead={itemData} detail={true} />
       )}
-      <DetailContent item={itemData} />
-      <LatestSection type={params.type} />
+      <DetailContent item={itemData} type={params.type} />
+      <LatestSection type={params.type} itemData={itemData} />
     </>
   );
 }

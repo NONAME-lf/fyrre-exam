@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import DetailContentSideBar from "../DetailContentSidebar/DetailContentSidebar";
+import DetailContentSideBar from "../DetailArticleSidebar/DetailArticleSidebar";
+import DetailAuthorSideBar from "../DetailAuthorSidebar/DetailAuthorSidebar";
 import "./style.scss";
 import { getData } from "../../helpers";
 
 export default function DetailContent(props) {
   const [authorData, setAuthorData] = useState(null);
 
-  //   console.log(props);
-
   useEffect(() => {
-    if (!props.item?.authorId) return;
+    if (!props.item?.authorId || props.type !== "magazine") return;
     getData().then((res) => {
       const author = res?.authors?.find(
         (athr) => +athr.id === +props.item.authorId
@@ -18,38 +17,96 @@ export default function DetailContent(props) {
     });
   }, [props]);
 
+  useEffect(() => {
+    if (!props.item || props.type !== "author") return;
+    setAuthorData(props.item || null);
+  }, [props]);
+
   return (
     <section className="detail-content">
-      <DetailContentSideBar authorData={authorData} articleData={props.item} />
-      <ul className="detail-content-text">
-        {props.item?.content.mainText.map((text, index) => {
-          if (text.medium) {
-            return (
-              <li key={index}>
-                <p className="medium">{text.medium}</p>
-              </li>
-            );
-          } else if (text.normal) {
-            return (
-              <li key={index}>
-                <p className="normal">{text.normal}</p>
-              </li>
-            );
-          } else if (text.quote) {
-            return (
-              <li key={index}>
-                <div className="quote-block">
-                  <div className="quotation">“</div>
-                  <blockquote>
-                    {text.quote.text}
-                    <span className="quote-author">{text.quote.author}</span>
-                  </blockquote>
-                </div>
-              </li>
-            );
-          }
-        })}
-      </ul>
+      {props.type === "magazine" && (
+        <>
+          <DetailContentSideBar
+            authorData={authorData}
+            articleData={props.item}
+          />
+          <ul className="detail-content-text">
+            {props.item?.content?.mainText &&
+              props.item?.content.mainText.map((text, index) => {
+                if (text.medium) {
+                  return (
+                    <li key={index}>
+                      <p className="medium">{text.medium}</p>
+                    </li>
+                  );
+                } else if (text.normal) {
+                  return (
+                    <li key={index}>
+                      <p className="normal">{text.normal}</p>
+                    </li>
+                  );
+                } else if (text.quote) {
+                  return (
+                    <li key={index}>
+                      <div className="quote-block">
+                        <div className="quotation">“</div>
+                        <blockquote>
+                          {text.quote.text}
+                          <span className="quote-author">
+                            {text.quote.author}
+                          </span>
+                        </blockquote>
+                      </div>
+                    </li>
+                  );
+                }
+              })}
+          </ul>
+        </>
+      )}
+      {props.type === "author" && (
+        <>
+          <DetailAuthorSideBar authorData={authorData} />
+          <ul className="detail-content-text author-biography">
+            <li className="main-info">
+              <hgroup>
+                <h2>{authorData?.name}</h2>
+                <p className="about">{authorData?.about}</p>
+              </hgroup>
+            </li>
+            {props.item?.biography &&
+              props.item?.biography.map((text, index) => {
+                if (text.medium) {
+                  return (
+                    <li key={index}>
+                      <p className="medium">{text.medium}</p>
+                    </li>
+                  );
+                } else if (text.normal) {
+                  return (
+                    <li key={index}>
+                      <p className="normal">{text.normal}</p>
+                    </li>
+                  );
+                } else if (text.quote) {
+                  return (
+                    <li key={index}>
+                      <div className="quote-block">
+                        <div className="quotation">“</div>
+                        <blockquote>
+                          {text.quote.text}
+                          <span className="quote-author">
+                            {text.quote.author}
+                          </span>
+                        </blockquote>
+                      </div>
+                    </li>
+                  );
+                }
+              })}
+          </ul>
+        </>
+      )}
     </section>
   );
 }

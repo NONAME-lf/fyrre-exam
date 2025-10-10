@@ -7,9 +7,12 @@ export default function DetailBackType(props) {
       <HoverLink
         to={`/${props.type}`}
         className="link-hover"
-        highlight="All&nbsp;"
-        text={props.type}
+        highlight="Go&nbsp;"
+        text="back"
         icon=""
+        uppercase="uppercase"
+        bold="bold"
+        iconReverse
       />
       <span className="type">{props.type}</span>
     </div>

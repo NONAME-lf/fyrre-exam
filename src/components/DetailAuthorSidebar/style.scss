@@ -1,0 +1,57 @@
+.detail-author-sidebar {
+    position: sticky;
+    height: max-content;
+    top: 96px;
+    background-color: #fff;
+
+    .img-wrap {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: 350px;
+        border-radius: 50%;
+        overflow: hidden;
+        filter: grayscale(1);
+        transition: all 0.3s ease;
+        justify-self: center;
+    }
+
+    .author-photo {
+        padding-bottom: 48px;
+        margin-bottom: 32px;
+        border-bottom: 1px solid #000;
+
+    }
+
+    .author-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 896px) {
+
+    .detail-content-text {
+        order: 1;
+    }
+
+    .detail-author-sidebar {
+        order: 2;
+
+        .img-wrap {
+            max-height: 300px;
+            width: 100%;
+            max-width: unset;
+            border-radius: 0;
+        }
+
+        .author-info {
+            flex-wrap: wrap;
+        }
+    }
+}

@@ -21,6 +21,12 @@
         max-width: 24px;
         max-height: 24px;
         display: inline-block;
+
+        &.reverse {
+            left: 0;
+            margin-right: 8px;
+            transform: rotate(180deg);
+        }
     }
 
     .hover-span {
@@ -93,6 +99,10 @@ a.hover-link:hover {
 
     .icon {
         left: 12%;
+
+        &.reverse {
+            left: -3%;
+        }
     }
 }
 

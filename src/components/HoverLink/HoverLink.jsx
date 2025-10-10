@@ -10,9 +10,14 @@ export default function HoverLink(props) {
       } ${props.bold ? "bold" : ""}`}
       to={props.to}
     >
+      {props.iconReverse && props.icon && (
+        <span className="icon reverse">{props.icon}</span>
+      )}
       <span className="highlight">{props.highlight}</span>
       <span className="hover-span">{props.text}</span>
-      {props.icon && <span className="icon">{props.icon}</span>}
+      {!props.iconReverse && props.icon && (
+        <span className="icon">{props.icon}</span>
+      )}
     </NavLink>
   );
 }
