@@ -34,10 +34,10 @@ export default function PodcastSection(props) {
   };
 
   const requestSpotifyToken = async () => {
-    const cashedToken = sessionStorage.getItem("spotify_token");
+    const cachedToken = sessionStorage.getItem("spotify_token");
     const tokenExpire = sessionStorage.getItem("spotify_token_expire");
-    if (cashedToken && tokenExpire && tokenExpire < Date.now()) {
-      setAccessToken(cashedToken);
+    if (cachedToken && tokenExpire && tokenExpire > Date.now()) {
+      setAccessToken(cachedToken);
       return;
     }
     // if (accessToken) return;
@@ -72,6 +72,12 @@ export default function PodcastSection(props) {
   // &market=US&locale=en-US
   const requestSpotifyData = async () => {
     if (!accessToken || !props.data) return;
+    const cachedToken = sessionStorage.getItem("spotify_token");
+    const tokenExpire = sessionStorage.getItem("spotify_token_expire");
+    if (cachedToken && tokenExpire && tokenExpire < Date.now()) {
+      requestSpotifyToken();
+      return;
+    }
     try {
       const showItems = [];
 

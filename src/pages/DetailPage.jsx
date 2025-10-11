@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { useState, useEffect } from "react";
 import DetailBackType from "../components/DetailBackType/DetailBackType";
 import { getData } from "../helpers";
