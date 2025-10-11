@@ -49,7 +49,7 @@ form {
 
         .pluses {
             position: absolute;
-            left: 50%;
+            right: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             transition: all 0.2s ease-in-out;
@@ -67,16 +67,16 @@ form {
 
             &::before,
             &::after {
-                width: 20%;
+                width: 80px;
             }
 
             .text {
-                left: 10%;
+                left: 40px;
                 font-weight: 600;
             }
 
             .pluses {
-                left: 90%;
+                right: -17px;
                 opacity: 1;
             }
         }
@@ -87,17 +87,17 @@ form {
             &::before,
             &::after {
                 width: 50%;
-                transition: all 0.1s ease-in-out;
+                transition: all 0.05s ease-in-out;
             }
 
             .text {
                 position: absolute;
                 color: #fff;
-                left: 15%;
+                left: 20%;
             }
 
             .pluses {
-                left: 85%;
+                right: 15%;
                 color: #fff;
                 opacity: 1;
             }

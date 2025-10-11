@@ -110,3 +110,10 @@
         }
     }
 }
+
+@media screen and (max-width: 896px) {
+    .article-sidebar {
+        max-width: unset;
+    }
+
+}
