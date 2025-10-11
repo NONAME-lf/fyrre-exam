@@ -1,8 +1,15 @@
 .categories-filter {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 12px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 
     h4 {
@@ -21,7 +28,10 @@
     }
 
     .categories {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         gap: 12px;
         max-height: 32px;

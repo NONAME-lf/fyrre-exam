@@ -1,4 +1,5 @@
 header {
+    position: -webkit-sticky;
     position: sticky;
     z-index: 1000;
     height: 60px;
@@ -6,6 +7,7 @@ header {
     width: 100%;
     border-bottom: 1px solid #000;
     background-color: rgba(255, 255, 255, 0.8);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 
     &:has(.active) {
@@ -16,8 +18,14 @@ header {
 
 header .container {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 8px;
     height: 100%;
@@ -31,6 +39,7 @@ header nav {
     .nav-list {
         font-size: 0;
         height: 100%;
+        -ms-flex-line-pack: center;
         align-content: center;
 
         li {

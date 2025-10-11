@@ -12,6 +12,7 @@ form {
         width: 100%;
         padding: 4px 24px;
         border: 1px solid #000;
+        -ms-flex-item-align: center;
         align-self: center;
 
         &::before {
@@ -23,6 +24,8 @@ form {
             width: 0%;
             height: 100%;
             background-color: #000;
+            -webkit-transition: width 0.2s ease-in-out;
+            -o-transition: width 0.2s ease-in-out;
             transition: width 0.2s ease-in-out;
         }
 
@@ -35,6 +38,8 @@ form {
             width: 0%;
             height: 100%;
             background-color: #000;
+            -webkit-transition: width 0.2s ease-in-out;
+            -o-transition: width 0.2s ease-in-out;
             transition: width 0.2s ease-in-out;
         }
 
@@ -42,7 +47,11 @@ form {
             position: absolute;
             left: 50%;
             top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
             transition: all 0.2s ease-in-out;
             z-index: 1;
         }
@@ -51,7 +60,11 @@ form {
             position: absolute;
             right: 50%;
             top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
             transition: all 0.2s ease-in-out;
             color: #fff;
             font-size: 2rem;
@@ -87,6 +100,8 @@ form {
             &::before,
             &::after {
                 width: 50%;
+                -webkit-transition: all 0.05s ease-in-out;
+                -o-transition: all 0.05s ease-in-out;
                 transition: all 0.05s ease-in-out;
             }
 

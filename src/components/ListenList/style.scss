@@ -1,4 +1,6 @@
 .listen-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 16px;
 
@@ -6,6 +8,8 @@
         height: 24px;
         width: 24px;
         fill: #000;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
         transform: scale(1);
     }
 
@@ -15,12 +19,18 @@
 
     a {
         opacity: 1;
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
         transition: all 0.2s ease;
     }
 
     a:hover {
         svg {
+            -webkit-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
             transition: all 0.2s ease;
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
             transform: scale(1.2);
         }
     }

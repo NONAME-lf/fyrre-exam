@@ -1,16 +1,24 @@
 .mobile-menu-panel {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 16px 0;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     display: none;
 }
 
 .mobile-menu-panel.active {
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
     display: block;
     width: 100%;
     min-height: 100px;
     background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     top: 102%;
     left: 0;
@@ -20,24 +28,36 @@
         margin-top: 0;
 
         .nav-list {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -ms-flex-wrap: wrap;
             flex-wrap: wrap;
             width: 100%;
+            -ms-flex-pack: distribute;
             justify-content: space-around;
             row-gap: 16px;
+            -webkit-column-gap: 26px;
+            -moz-column-gap: 26px;
             column-gap: 26px;
 
             li {
                 margin: 0;
                 text-align: center;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 auto;
                 flex: 1 1 auto;
             }
 
             li:has(.hover-link) {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 140px;
                 flex: 1 1 140px;
             }
 
             li:has(.divider) {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 100%;
                 flex: 1 1 100%;
 
                 .divider {

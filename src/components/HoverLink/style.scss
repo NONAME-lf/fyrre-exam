@@ -17,6 +17,8 @@
         top: 3px;
         left: 5px;
         color: #000;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
         transition: all .3s;
         max-width: 24px;
         max-height: 24px;
@@ -25,6 +27,8 @@
         &.reverse {
             left: 0;
             margin-right: 8px;
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
             transform: rotate(180deg);
         }
     }
@@ -32,6 +36,8 @@
     .hover-span {
         position: relative;
         left: 0;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
         transition: all .3s;
         display: inline-block;
         height: 100%;
@@ -43,6 +49,8 @@
         position: relative;
         display: inline-block;
         height: 100%;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
         transition: all .3s ease;
         z-index: 1;
 
@@ -59,12 +67,16 @@ a.hover-link::before,
     content: '';
     display: block;
     position: absolute;
+    -webkit-transition: width .3s;
+    -o-transition: width .3s;
     transition: width .3s;
     height: 100%;
     width: 0;
     top: 0;
     left: -1px;
     background-color: #000;
+    -webkit-transform: translateX(-10%);
+    -ms-transform: translateX(-10%);
     transform: translateX(-10%);
 }
 
@@ -112,6 +124,8 @@ a.hover-link::after {
     display: block;
     height: 2px;
     background-color: #000;
+    -webkit-transition: width .3s;
+    -o-transition: width .3s;
     transition: width .3s;
     width: 0;
     position: absolute;

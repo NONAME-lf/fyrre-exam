@@ -1,6 +1,8 @@
 .btn.filter {
     border: none;
     background-color: transparent;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     display: inline-block;
     width: 100%;
@@ -13,6 +15,8 @@
     }
 
     &:active {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
         transform: scale(0.9);
         opacity: 0.8;
     }

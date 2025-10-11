@@ -1,5 +1,8 @@
  .detail-content-sidebar {
+     position: -webkit-sticky;
      position: sticky;
+     height: -webkit-max-content;
+     height: -moz-max-content;
      height: max-content;
      top: 96px;
      background-color: #fff;
@@ -24,8 +27,15 @@
                  line-height: normal;
                  text-transform: uppercase;
                  padding: 11.03% 6.98% 7.278% 10.4%;
+                 display: -webkit-box;
+                 display: -ms-flexbox;
                  display: flex;
+                 -webkit-box-orient: vertical;
+                 -webkit-box-direction: normal;
+                 -ms-flex-direction: column;
                  flex-direction: column;
+                 -webkit-box-pack: justify;
+                 -ms-flex-pack: justify;
                  justify-content: space-between;
                  // background-color: rgba($color: #BBD2D5, $alpha: 0.5);
                  // background-color: rgba($color: #9C667D, $alpha: 0.5);
@@ -35,7 +45,11 @@
 
 
                  .misc {
+                     display: -webkit-box;
+                     display: -ms-flexbox;
                      display: flex;
+                     -webkit-box-pack: justify;
+                     -ms-flex-pack: justify;
                      justify-content: space-between;
                  }
 
@@ -77,7 +91,11 @@
          }
 
          .listen-on {
+             display: -webkit-box;
+             display: -ms-flexbox;
              display: flex;
+             -webkit-box-pack: justify;
+             -ms-flex-pack: justify;
              justify-content: space-between;
 
              h3 {
@@ -89,8 +107,12 @@
      }
 
      .author-info {
+         display: -webkit-box;
+         display: -ms-flexbox;
          display: flex;
          gap: 16px;
+         -webkit-box-align: center;
+         -ms-flex-align: center;
          align-items: center;
          padding-bottom: 32px;
          border-bottom: 1px solid #000;
@@ -111,7 +133,10 @@
          max-width: 80px;
          border-radius: 50%;
          overflow: hidden;
+         -webkit-filter: grayscale(1);
          filter: grayscale(1);
+         -webkit-transition: all 0.3s ease;
+         -o-transition: all 0.3s ease;
          transition: all 0.3s ease;
      }
 
@@ -120,7 +145,11 @@
              font-size: 1rem;
              font-weight: 400;
              line-height: 180%;
+             display: -webkit-box;
+             display: -ms-flexbox;
              display: flex;
+             -webkit-box-pack: justify;
+             -ms-flex-pack: justify;
              justify-content: space-between;
          }
 
@@ -139,13 +168,18 @@
  @media screen and (max-width: 896px) {
 
      .detail-content-text {
+         -webkit-box-ordinal-group: 2;
+         -ms-flex-order: 1;
          order: 1;
      }
 
      .detail-content-sidebar {
+         -webkit-box-ordinal-group: 3;
+         -ms-flex-order: 2;
          order: 2;
 
          .author-info {
+             -ms-flex-wrap: wrap;
              flex-wrap: wrap;
          }
      }

@@ -7,6 +7,7 @@ $text-color: #000;
 *::after {
     padding: 0;
     margin: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -14,6 +15,7 @@ $text-color: #000;
     // margin-top: 168px;
     margin-top: 48px;
     scroll-behavior: smooth;
+    -ms-scroll-chaining: none;
     overscroll-behavior: none;
 }
 
@@ -24,6 +26,8 @@ ol {
 
 a,
 button {
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
     transition: all .2s ease;
     text-decoration: none;
     color: #000;
@@ -37,6 +41,7 @@ img {
     vertical-align: top;
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     // object-position: top top;
 }
@@ -61,12 +66,21 @@ body {
 }
 
 .page-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     min-height: 100dvh;
 
     main {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
         flex-grow: 1;
     }
 }
@@ -162,6 +176,8 @@ body {
         padding: 0;
 
         li {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 100%;
             flex: 1 1 100%;
 
             &:not(:last-child) {
@@ -196,6 +212,7 @@ body {
 // <== DETAIL PAGE ==>
 .detail-back-type+.detail-content {
     .detail-content-sidebar .podcast-info .img-wrap {
+        -webkit-filter: grayscale(0);
         filter: grayscale(0)
     }
 }

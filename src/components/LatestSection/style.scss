@@ -1,18 +1,25 @@
 .latest-section {
     .latest-items {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         background-color: #000;
         gap: 1px;
         padding: 1px;
 
         li {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 350px;
             flex: 1 1 350px;
             background-color: #fff;
         }
 
         &:has(.horizontal) {
             .latest-item {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 600px;
                 flex: 1 1 600px;
                 padding: 1.9077%;
 
@@ -23,6 +30,8 @@
 
                     .content {
                         gap: 16px;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
                         justify-content: center;
 
                         h3 {
