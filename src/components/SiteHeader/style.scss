@@ -7,14 +7,21 @@ header {
     border-bottom: 1px solid #000;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
+
+    &:has(.active) {
+        background-color: #fff;
+    }
 }
 
 
 header .container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    gap: 8px;
+    height: 100%;
+    // padding: 16px 0;
 }
 
 header nav {
@@ -50,6 +57,11 @@ header .img-wrap {
     max-height: 18px;
 }
 
+.hamburger-react {
+    display: none;
+    z-index: 1001;
+}
+
 @media screen and (max-width: 896px) {
 
     nav .nav-list li:has(.divider) {
@@ -59,9 +71,13 @@ header .img-wrap {
             display: none;
         }
     }
+
+    .hamburger-react {
+        display: inline-block;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     nav .nav-list {
         display: none;
     }

@@ -4,8 +4,41 @@ import logo from "../../assets/img/fyrre-logo.svg";
 import SocList from "../SocList/SocList";
 import Container from "../Container/Container";
 import HoverLink from "../HoverLink/HoverLink";
+import { Divide as Hamburger } from "hamburger-react";
+import { useState, useEffect } from "react";
+import MobileMenuPanel from "../MobileMenuPanel/MobileMenuPanel";
 
 export default function SiteHeader() {
+  const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.querySelector(".overlay").addEventListener("click", () => {
+      setOpen(false);
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 896) {
+        setOpen(false);
+      }
+    });
+    if (isOpen) {
+      document.querySelector(".overlay").classList.add("active");
+      document.querySelector(".mobile-menu-panel").classList.add("active");
+    } else {
+      document.querySelector(".overlay").classList.remove("active");
+      document.querySelector(".mobile-menu-panel").classList.remove("active");
+    }
+    return () => {
+      document.querySelector(".overlay").removeEventListener("click", () => {
+        setOpen(false);
+      });
+      window.removeEventListener("resize", () => {
+        if (window.innerWidth > 896) {
+          setOpen(false);
+        }
+      });
+    };
+  }, [isOpen]);
+
   return (
     <header>
       <Container>
@@ -33,6 +66,8 @@ export default function SiteHeader() {
             </li>
           </ul>
         </nav>
+        <Hamburger size={27} toggled={isOpen} toggle={setOpen} />
+        <MobileMenuPanel />
       </Container>
     </header>
   );
