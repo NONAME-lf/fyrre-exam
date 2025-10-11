@@ -1,13 +1,14 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter, Route, Routes } from "react-router";
 import Layout from "./Layout.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import MagazinePage from "./pages/MagazinePage.jsx";
-import DetailPage from "./pages/DetailPage.jsx";
-import AuthorPage from "./pages/AuthorPage.jsx";
-import PodcastPage from "./pages/PodcastPage.jsx";
 import "./assets/style/style.scss";
+
+const HomePage = lazy(() => import("./pages/HomePage.jsx"));
+const MagazinePage = lazy(() => import("./pages/MagazinePage.jsx"));
+const DetailPage = lazy(() => import("./pages/DetailPage.jsx"));
+const AuthorPage = lazy(() => import("./pages/AuthorPage.jsx"));
+const PodcastPage = lazy(() => import("./pages/PodcastPage.jsx"));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>

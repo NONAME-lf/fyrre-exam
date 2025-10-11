@@ -37,7 +37,12 @@ export default function SiteFooter() {
         <div className="nav-div">
           <NavLink to="/">
             <div className="img-wrap">
-              <img src={logo} alt="Fyrre Magazine Logo" className="logo" />
+              <img
+                src={logo}
+                alt="Fyrre Magazine Logo"
+                className="logo"
+                loading="lazy"
+              />
             </div>
           </NavLink>
           <FooterNav nav={footerData.nav} />

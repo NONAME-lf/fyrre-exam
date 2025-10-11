@@ -12,6 +12,8 @@ export default function DetailAuthorSidebar(props) {
           <img
             src={getImagePath(props.authorData?.img)}
             alt={`${props.authorData?.name} image`}
+            onError={() => setImagePath(getImagePath("no-image.jpg"))}
+            loading="lazy"
           />
         </div>
       </div>

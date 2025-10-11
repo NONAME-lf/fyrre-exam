@@ -29,6 +29,7 @@ export default function ArticleCard(props) {
             <img
               src={imagePath}
               alt={`${props.article.title} image`}
+              loading="lazy"
               onError={() =>
                 setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
               }

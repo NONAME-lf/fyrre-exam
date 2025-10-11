@@ -25,6 +25,7 @@ export default function AuthorCard(props) {
             src={imagePath}
             alt={`${props.author.name} image`}
             onError={() => setImagePath(getImagePath("no-image.jpg"))}
+            loading="lazy"
           />
         </div>
       </NavLink>

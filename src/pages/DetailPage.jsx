@@ -1,11 +1,14 @@
 import { useLocation, useParams } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import DetailBackType from "../components/DetailBackType/DetailBackType";
 import { getData } from "../helpers";
 import LeadArticle from "../components/LeadArticle/LeadArticle";
 import DetailContent from "../components/DetailContent/DetailContent";
-import LatestSection from "../components/LatestSection/LatestSection";
 import { toast } from "react-toastify";
+
+const LatestSection = lazy(() =>
+  import("../components/LatestSection/LatestSection")
+);
 
 export default function DetailPage() {
   const params = useParams();

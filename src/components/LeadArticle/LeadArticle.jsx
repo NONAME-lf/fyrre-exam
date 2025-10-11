@@ -100,6 +100,7 @@ export default function LeadArticle(props) {
               onError={() =>
                 setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
               }
+              loading="lazy"
             />
           </div>
         )}

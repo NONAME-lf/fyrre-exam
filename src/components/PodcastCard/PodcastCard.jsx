@@ -36,6 +36,7 @@ export default function PodcastCard(props) {
             onError={() =>
               setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
             }
+            loading="lazy"
           />
         </div>
       </NavLink>

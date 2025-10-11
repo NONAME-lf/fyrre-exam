@@ -37,6 +37,7 @@ export default function ArticleSidebar() {
           <img
             src={getImagePath(sidebarData?.featuredMagazine?.img)}
             alt="Featured Magazine image"
+            loading="lazy"
           />
         </div>
         <SiteButton to="/magazine" text="Order" className="dark" />

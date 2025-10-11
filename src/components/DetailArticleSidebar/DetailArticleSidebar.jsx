@@ -25,6 +25,7 @@ export default function DetailContentSideBar(props) {
               src={imagePath}
               alt={`${props.authorData?.name} image`}
               onError={() => setImagePath(getImagePath("no-image.jpg"))}
+              loading="lazy"
             />
           </div>
           <h3>{props.authorData?.name}</h3>
@@ -66,6 +67,7 @@ export default function DetailContentSideBar(props) {
               onError={() =>
                 setImagePath("/fyrre-exam/src/assets/img/no-image.jpg")
               }
+              loading="lazy"
             />
           </div>
           <div className="listen-on">

@@ -1,12 +1,19 @@
 import { toast } from "react-toastify";
 import NewsTicker from "../components/NewsTicker/NewsTicker";
-import { use, useEffect, useState } from "react";
+import { lazy, use, useEffect, useState } from "react";
 import LeadArticle from "../components/LeadArticle/LeadArticle";
-import ArticlesSection from "../components/ArticlesSection/ArticlesSection";
-import PodcastsSection from "../components/PodcastsSection/PodcastsSection";
-import AuthorsSection from "../components/AuthorsSection/AuthorsSection";
 import PageSlogan from "../components/PageSlogan/PageSlogan";
 import { getData } from "../helpers";
+
+const ArticlesSection = lazy(() =>
+  import("../components/ArticlesSection/ArticlesSection")
+);
+const PodcastsSection = lazy(() =>
+  import("../components/PodcastsSection/PodcastsSection")
+);
+const AuthorsSection = lazy(() =>
+  import("../components/AuthorsSection/AuthorsSection")
+);
 
 export default function HomePage() {
   const [leadArticle, setLeadArticle] = useState(null);
