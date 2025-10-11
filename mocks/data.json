@@ -642,6 +642,7 @@
         "upper": "NEWSLETTER",
         "title": "Design News to your inbox"
       },
+      "id": "sidebar",
       "labels": [
         {
           "id": "userName",
@@ -658,7 +659,7 @@
           "id": "userEmail",
           "autocomplete": "email",
           "placeholder": "Email",
-          "type": "email",
+          "type": "text",
           "required": true,
           "minLength": 5,
           "maxLength": 100,
@@ -762,6 +763,7 @@
   "footerData": {
     "form": {
       "title": "Design News to your inbox",
+      "id": "footer",
       "labels": [
         {
           "id": "userName",
@@ -778,7 +780,7 @@
           "id": "userEmail",
           "autocomplete": "email",
           "placeholder": "Email",
-          "type": "email",
+          "type": "text",
           "required": true,
           "minLength": 5,
           "maxLength": 100,
