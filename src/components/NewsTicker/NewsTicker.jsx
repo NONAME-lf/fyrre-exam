@@ -1,9 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./style.scss";
 
 export default function NewsTicker(props) {
   const newsAdds = props?.newsTicker?.adds;
   const className = props?.className;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!props?.newsTicker) return;
+    moveTicker();
+  }, [props.newsTicker, windowWidth]);
 
   // Function to move the ticker
   async function moveTicker() {
@@ -24,12 +36,18 @@ export default function NewsTicker(props) {
     const widthDiff = ticker.parentElement.offsetWidth - tickerWidth;
     const sign = Math.sign(widthDiff);
 
-    const tickerClone = ticker.cloneNode(true);
-    tickerClone.classList.add("clone");
-    ticker.parentElement.appendChild(tickerClone);
+    let tickerClone = document.querySelector(`${className} .news-list.clone`);
+    if (!tickerClone) {
+      tickerClone = ticker.cloneNode(true);
+      tickerClone.classList.add("clone");
+      ticker.parentElement.appendChild(tickerClone);
+    }
 
-    let pos = ticker.parentElement.offsetWidth;
-    let clonePos = pos + tickerWidth + 24;
+    // let pos = ticker.parentElement.offsetWidth;
+    // let clonePos = pos + tickerWidth + 24;
+    // debugger;
+    let pos = tickerWidth - widthDiff * sign;
+    let clonePos = tickerWidth * 2 - widthDiff * sign + 24;
 
     ticker.style.transform = `translateX(${pos}px)`;
     tickerClone.style.transform = `translateX(${clonePos}px)`;
@@ -38,21 +56,11 @@ export default function NewsTicker(props) {
     const step = () => {
       clonePos -= 2;
       pos -= 2;
-      if (
-        clonePos <=
-          Math.abs(tickerWidth - ticker.parentElement.offsetWidth) * sign -
-            24 &&
-        cycle
-      ) {
+      if (clonePos <= Math.abs(widthDiff) * sign - 24 && cycle) {
         pos = ticker.parentElement.offsetWidth;
         cycle = false;
       }
-      if (
-        pos <=
-          Math.abs(tickerWidth - ticker.parentElement.offsetWidth) * sign -
-            24 &&
-        !cycle
-      ) {
+      if (pos <= Math.abs(widthDiff) * sign - 24 && !cycle) {
         clonePos = ticker.parentElement.offsetWidth;
         cycle = true;
       }
