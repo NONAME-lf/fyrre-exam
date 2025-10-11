@@ -1,0 +1,1 @@
+import{j as t,H as i}from"./index-DPwbfeyc.js";function h(e){return t.jsxs("div",{className:"section-header",children:[t.jsx("h2",{children:e.title}),t.jsx(i,{to:e.to,highlight:e.highlight,text:e.text,icon:"",uppercase:!0,bold:!0})]})}export{h as S};
