@@ -28,7 +28,7 @@ export default function SiteHeader() {
       document.querySelector(".mobile-menu-panel").classList.remove("active");
     }
     return () => {
-      document.querySelector(".overlay").removeEventListener("click", () => {
+      document.querySelector(".overlay")?.removeEventListener("click", () => {
         setOpen(false);
       });
       window.removeEventListener("resize", () => {

@@ -1,9 +1,22 @@
 import { getImagePath } from "../../helpers";
 import SocList from "../SocList/SocList";
 import "./style.scss";
+import { useState, useEffect } from "react";
 
 export default function DetailAuthorSidebar(props) {
-  //   console.log(props);
+  const [imagePath, setImagePath] = useState(null);
+  console.log(props);
+
+  const image = () => {
+    if (!props.authorData?.img) {
+      return false;
+    }
+    setImagePath(getImagePath(`${props.authorData.img}`));
+  };
+
+  useEffect(() => {
+    image();
+  }, [props.authorData]);
 
   return (
     <aside className="detail-author-sidebar">

@@ -1,7 +1,15 @@
   export function getImagePath(path) {
-      const url = new URL(`./assets/img/${path}`,
-          import.meta.url).href;
-      return url;
+      try {
+          const url = new URL(`./assets/img/${path}`,
+              import.meta.url).href;
+          if (url.includes('undefined')) {
+              throw new Error('Image not found');
+          }
+          return url;
+      } catch {
+          return new URL('./assets/img/no-image.jpg',
+              import.meta.url).href;
+      }
   }
 
   export async function getData() {
