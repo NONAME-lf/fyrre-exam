@@ -30,7 +30,7 @@ export default function ArticleSidebar() {
     <aside className="article-sidebar">
       <div className="magazine">
         <div className="info">
-          <span>PrintMagazine</span>
+          <span>Printmagazine</span>
           <h3>{sidebarData?.featuredMagazine?.date}</h3>
         </div>
         <div className="img-wrap">

@@ -1,5 +1,6 @@
 form {
     button {
+        position: relative;
         background-color: #fff;
         font-size: 0.875rem;
         font-weight: 400;
@@ -10,5 +11,102 @@ form {
         border: none;
         width: 100%;
         padding: 4px 24px;
+        border: 1px solid #000;
+        align-self: center;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #000;
+            transition: width 0.2s ease-in-out;
+        }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #000;
+            transition: width 0.2s ease-in-out;
+        }
+
+        .text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease-in-out;
+            z-index: 1;
+        }
+
+        .pluses {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease-in-out;
+            color: #fff;
+            font-size: 2rem;
+            opacity: 0;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        &:hover {
+            // background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+
+            &::before,
+            &::after {
+                width: 20%;
+            }
+
+            .text {
+                left: 10%;
+                font-weight: 600;
+            }
+
+            .pluses {
+                left: 90%;
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            border: 1px solid #fff;
+
+            &::before,
+            &::after {
+                width: 50%;
+                transition: all 0.1s ease-in-out;
+            }
+
+            .text {
+                position: absolute;
+                color: #fff;
+                left: 15%;
+            }
+
+            .pluses {
+                left: 85%;
+                color: #fff;
+                opacity: 1;
+            }
+        }
+
+        &:disabled {
+            background-color: #e0e0e0;
+            color: #9e9e9e;
+            cursor: not-allowed;
+        }
     }
 }

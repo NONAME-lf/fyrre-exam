@@ -22,9 +22,9 @@ export default function SiteForm({ form }) {
     e.preventDefault();
     button.setAttribute("disabled", "");
 
-    const name = formElem.querySelector("#userName");
+    const name = formElem.querySelector(`#userName-${form?.id}`);
     const nameVal = name.value.trim();
-    const email = formElem.querySelector("#userEmail");
+    const email = formElem.querySelector(`#userEmail-${form?.id}`);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const emailVal = email.value;
     if (nameVal.length < 2 || !isNaN(nameVal)) {
@@ -45,6 +45,8 @@ export default function SiteForm({ form }) {
           isValid = true;
         });
       });
+      button.removeAttribute("disabled");
+      return;
     }
 
     isValid &&
@@ -115,6 +117,7 @@ export default function SiteForm({ form }) {
               placeholder={label.placeholder}
               className={label.className}
               autoComplete={label.autoComplete}
+              pos={form?.id}
             />
           ) : (
             label.type === "submit" && (

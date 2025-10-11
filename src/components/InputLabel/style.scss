@@ -1,10 +1,97 @@
-:root {
-    label {
-        input {
-            background-color: #fff;
-            border: none;
-            padding: 0 15px;
-            height: 50px;
+.input-label {
+    position: relative;
+    border: 1px solid #000;
+
+    &.invalid.invalid.invalid {
+        border-color: #fff;
+
+        span {
+            color: #8B0000;
+            font-weight: 600;
+            text-transform: uppercase;
         }
+
+        &::after {
+            width: 70px;
+            padding: 7px;
+            content: '-';
+            opacity: 1;
+            color: #8B0000;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #000;
+        opacity: 1;
+        transition: width 0.2s ease-in-out;
+        display: inline-block;
+        z-index: 1;
+    }
+
+    &::after {
+        opacity: 0;
+        content: '';
+        position: absolute;
+        color: #fff;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        top: 0;
+        right: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #000;
+        opacity: 1;
+        transition: width 0.2s ease-in-out;
+        display: inline-block;
+        z-index: 1;
+    }
+
+    input {
+        background-color: #fff;
+        border: none;
+        padding: 0 80px;
+        height: 50px;
+        position: relative;
+        font-size: 1rem;
+
+        &::placeholder {
+            opacity: 0;
+        }
+
+    }
+
+    span {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        font-size: 0.825em;
+        transition-duration: 300ms;
+        z-index: 2;
+    }
+
+
+    &:focus-within>span,
+    input:not(:placeholder-shown)+span {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    &:focus-within::before,
+    &:has(input:not(:placeholder-shown))::before {
+        width: 70px;
+    }
+
+    &:focus-within,
+    &:has(input:not(:placeholder-shown)) {
+        border: 1px solid #fff;
     }
 }
