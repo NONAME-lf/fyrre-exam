@@ -13,6 +13,8 @@ $text-color: #000;
 :root {
     // margin-top: 168px;
     margin-top: 48px;
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
 }
 
 ul,
