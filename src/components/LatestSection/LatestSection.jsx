@@ -9,7 +9,6 @@ import { useParams } from "react-router";
 export default function LatestSection(props) {
   const [typeData, setTypeData] = useState(null);
   const [latestItems, setLatestItems] = useState([]);
-  console.log(props);
 
   useEffect(() => {
     if (props.type !== "magazine" && props.type !== "author") return;
@@ -19,10 +18,6 @@ export default function LatestSection(props) {
       // console.log(dataList);
     });
   }, [props]);
-
-  useEffect(() => {
-    console.log(typeData);
-  }, [typeData]);
 
   useEffect(() => {
     if (props.type !== "podcast") return;

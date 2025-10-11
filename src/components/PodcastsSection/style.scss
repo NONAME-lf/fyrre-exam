@@ -9,6 +9,14 @@
         &>li {
             background-color: #fff;
             flex: 1 1 450px;
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}n) {
+                    .color-layer {
+                        background-color: rgba($color: nth((#BBD2D5, #9C667D, #D1D9B5, #D79C7E, #48A1B9), $i), $alpha: 0.2);
+                    }
+                }
+            }
         }
 
         &:has(.horizontal) {

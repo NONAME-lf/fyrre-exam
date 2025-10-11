@@ -6,6 +6,7 @@ import "./style.scss";
 
 export default function DetailContentSideBar(props) {
   const [imagePath, setImagePath] = useState(null);
+  // console.log(props);
 
   useEffect(() => {
     if (!props.authorData?.img && props.podcastData?.images) return;
@@ -69,7 +70,7 @@ export default function DetailContentSideBar(props) {
           </div>
           <div className="listen-on">
             <h3>Listen on</h3>
-            <ListenList />
+            <ListenList spotify={props.podcastData?.external_urls?.spotify} />
           </div>
         </div>
         <ul className="article-info">

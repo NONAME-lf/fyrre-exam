@@ -49,7 +49,7 @@ export default function ArticleSidebar() {
               <div className="number">0{key + 1}</div>
               <div className="about">
                 <NavLink
-                  to={`/detail/article/${item.id}`}
+                  to={`/detail/magazine/${item.id}`}
                   className="title-link"
                 >
                   <span className="title">{item.title}</span>

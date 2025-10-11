@@ -1,11 +1,13 @@
 import "./style.scss";
 
 export default function ListenList(props) {
+  console.log(props);
+
   return (
     <ul className="listen-list">
       <li>
         <a
-          href="#"
+          href={props.spotify}
           target="_blank"
           rel="noopener noreferrer nofollow"
           className={props.inverted}

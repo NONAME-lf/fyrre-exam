@@ -7,7 +7,7 @@ export default function FormButton(props) {
       to={props.to}
       className={`btn ${props.className ? props.className : ""}`}
     >
-      {props.text}
+      <span className="text">{props.text}</span>
     </NavLink>
   );
 }

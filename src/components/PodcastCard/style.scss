@@ -84,9 +84,8 @@
         max-width: unset;
 
         img {
-            // filter: hue-rotate(180deg);
-            filter: grayscale(1);
-            transition: filter 0.3s ease;
+            filter: hue-rotate(180deg);
+            transition: filter 0.4s ease;
         }
 
         .color-layer {
@@ -102,11 +101,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            // background-color: rgba($color: #BBD2D5, $alpha: 0.5);
-            // background-color: rgba($color: #9C667D, $alpha: 0.5);
-            // background-color: rgba($color: #D1D9B5, $alpha: 0.5);
-            // background-color: rgba($color: #D79C7E, $alpha: 0.5);
-            // background-color: rgba($color: #48A1B9, $alpha: 0.5);
+            transition: all 0.3s ease;
+            background-color: transparent;
+
 
 
             .misc {
@@ -182,9 +179,17 @@
         }
     }
 
-    &:has(.link-hover:hover) img {
-        filter: grayscale(0);
+    &:has(.link-hover:hover) {
+        .img-wrap .color-layer {
+            background-color: transparent;
+        }
+
+        img {
+            filter: hue-rotate(0);
+        }
     }
+
+
 }
 
 @media screen and (max-width: 1024px) {

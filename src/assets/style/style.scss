@@ -190,3 +190,10 @@ body {
         }
     }
 }
+
+// <== DETAIL PAGE ==>
+.detail-back-type+.detail-content {
+    .detail-content-sidebar .podcast-info .img-wrap {
+        filter: grayscale(0)
+    }
+}

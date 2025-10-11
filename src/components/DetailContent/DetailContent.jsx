@@ -6,6 +6,7 @@ import { getData } from "../../helpers";
 
 export default function DetailContent(props) {
   const [authorData, setAuthorData] = useState(null);
+  // console.log(props);
 
   useEffect(() => {
     if (!props.item?.authorId || props.type !== "magazine") return;
@@ -113,7 +114,7 @@ export default function DetailContent(props) {
           <DetailContentSideBar
             podcastData={props.item}
             type={props.type}
-            episodeNum={props.itemData}
+            episodeNum={props.item?.epNum}
           />
           <ul className="detail-content-text">
             {props.item?.name && (

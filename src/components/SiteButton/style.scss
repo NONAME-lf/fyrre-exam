@@ -11,4 +11,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    border: 1px solid transparent;
+    scale: 1;
+
+    .text {
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        background-color: #fff;
+        width: 0;
+        height: 100%;
+        transition: all 0.3s ease;
+        top: 0;
+        left: 0;
+    }
+
+    &:hover {
+        color: #000;
+        border: 1px solid #000;
+
+        &::before {
+            width: 100%;
+        }
+    }
+
+    &:active {
+        scale: 0.98;
+    }
 }

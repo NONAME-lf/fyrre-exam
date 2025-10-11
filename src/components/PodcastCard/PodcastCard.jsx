@@ -18,8 +18,6 @@ export default function PodcastCard(props) {
         // to={props.episode.external_urls.spotify}
         to={`/detail/podcast/${props.episode.id}`}
         className="link-hover"
-        target="_blank"
-        rel="noreferrer nooopener nofollow"
       >
         <div className="img-wrap">
           <div className="color-layer">
@@ -44,7 +42,7 @@ export default function PodcastCard(props) {
       <div className="content">
         <NavLink
           // to={props.episode.external_urls.spotify}
-          to={`/detailt/podcast/${props.episode.id}`}
+          to={`/detail/podcast/${props.episode.id}`}
           className="link-hover"
         >
           <h3 className="title">{props.episode.name}</h3>

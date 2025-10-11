@@ -5,7 +5,7 @@ export default function SocList(props) {
     <ul className="soc-list">
       <li className={props.inverted || ""}>
         <a
-          href="#"
+          href={props.href || "#"}
           target="_blank"
           rel="noopener noreferrer nofollow"
           className={props.inverted}
