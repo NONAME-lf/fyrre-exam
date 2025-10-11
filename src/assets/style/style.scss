@@ -47,12 +47,12 @@ img {
 }
 
 .container {
-    width: min(90%, 1680px);
+    width: min(90.5%, 1680px);
     margin: 0 auto;
 }
 
 .page-wrapper>.container {
-    margin-top: 108px;
+    margin-top: 48px;
 }
 
 body {
@@ -89,11 +89,17 @@ body {
 .img-wrap {
     // aspect-ratio: 4/3;
     max-width: 280px;
+
+    img {
+        // object-fit: cover;
+        // object-position: -91px 11px;
+        // transform: scale(1.1);
+    }
 }
 
 //  <== ART & LIFE ==>
 .slogan {
-    margin-bottom: 48px;
+    margin-bottom: 39px;
     text-align: center;
     max-width: unset;
     width: 100%;
@@ -111,7 +117,7 @@ body {
 
 //  <== NEWS TICKER ==>
 .news-ticker {
-    margin-bottom: 75.71px;
+    margin-bottom: 75px;
 }
 
 //  <== ARTICLES SECTION ==>

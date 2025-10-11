@@ -148,7 +148,7 @@ export default function PodcastSection(props) {
     <section className="podcasts-section">
       {props.sectionHeader && (
         <SectionHeader
-          title="Podcasts"
+          title="Podcast"
           highlight="All&nbsp;"
           text="Episodes"
           to="/podcast"
